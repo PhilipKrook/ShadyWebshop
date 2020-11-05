@@ -1,0 +1,42 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@model LIAuppgift.Models.ViewModels.ProductListingPageViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Static/css/Style.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <div>
+        <h1>Listing all products</h1>
+
+        <p>@Html.PropertyFor(m => Model.CurrentPage.MainBody)</p>
+        <p>@Html.PropertyFor(m => Model.CurrentPage.ProductType)</p>
+
+        
+
+        <div class="products-all">
+            @foreach (var product in Model.Products)
+             {
+                <div class="products-single">
+                    <img class="" src="~/Static/gfx/image404.png" alt="" />
+                    <a href="~/Views/ProductPage/Index.cshtml"><h3>@product.Heading</h3></a>
+                </div>
+             }
+
+     @* <div class="products-single">
+            <img class="" src="~/Static/gfx/image404.png" alt="" />
+            <a href="~/Views/ProductPage/Index.cshtml"><h4>Product title</h4></a>
+        </div>*@
+
+        </div>    
+    </div>
+</body>
+</html>

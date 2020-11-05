@@ -1,0 +1,37 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@model LIAuppgift.Models.Pages.ProductPage
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Static/css/Style.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    
+        <div class="product-overview">
+            <div class="product-id">
+                <h1>@Html.PropertyFor(m => Model.Heading)</h1>
+                <p>Article number: @Html.PropertyFor(m => Model.ArticleNumber)</p>
+            </div>
+            <div class="product-column">
+                <img class="product-image" src="~/Static/gfx/image404.png" alt="" />
+                <div class="product-price">
+                  Price:  @Html.PropertyFor(m => Model.ProductPrice)
+                    <button class="button-buy">Buy</button>
+                </div>
+            </div>
+        </div>
+        <div class="product-info">
+            <strong>Product description</strong>
+            <p>@Html.PropertyFor(m => Model.MainBody)</p>
+        </div>
+    
+</body>
+</html>
