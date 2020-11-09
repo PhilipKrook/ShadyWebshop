@@ -14,24 +14,32 @@
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
-    
-        <div class="product-overview">
-            <div class="product-id">
-                <h1>@Html.PropertyFor(m => Model.Heading)</h1>
-                <p>Article number: @Html.PropertyFor(m => Model.ArticleNumber)</p>
-            </div>
-            <div class="product-column">
-                <img class="product-image" src="~/Static/gfx/image404.png" alt="" />
-                <div class="product-price">
-                  Price:  @Html.PropertyFor(m => Model.ProductPrice)
-                    <button class="button-buy">Buy</button>
-                </div>
+
+    <div class="product-overview">
+        <div class="product-id">
+            <h1>@Html.PropertyFor(m => Model.Heading)</h1>
+            <p>Article number: @Html.PropertyFor(m => Model.ArticleNumber)</p>
+        </div>
+        <div class="product-column">
+            <img class="product-image" src="~/Static/gfx/image404.png" alt="" />
+            <div class="product-price">
+                Price:  @Html.PropertyFor(m => Model.ProductPrice)
+                <button class="button-buy">Buy</button>
             </div>
         </div>
-        <div class="product-info">
-            <strong>Product description</strong>
-            <p>@Html.PropertyFor(m => Model.MainBody)</p>
-        </div>
+    </div>
+    <div class="product-info">
+        <strong>Product description</strong>
+        <p>@Html.PropertyFor(m => Model.MainBody)</p>
+    </div>
     
+
+
+@Html.PropertyFor(m => Model.TestImage, new { CssClass = "test-class-1"} )
+
+<div @Html.EditAttributes(x => Model.TestImage)>
+    <img class="test-class-2" src="@Url.ContentUrl(Model.TestImage)"/>
+</div>
+
 </body>
 </html>

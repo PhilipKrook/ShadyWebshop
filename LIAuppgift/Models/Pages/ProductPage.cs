@@ -7,6 +7,8 @@ using EPiServer.SpecializedProperties;
 
 namespace LIAuppgift.Models.Pages
 {
+    using EPiServer.Web;
+
     [ContentType(DisplayName = "Product Page", GUID = "2bbb5982-6606-4c62-9a18-181d08619c91", Description = "This page displays the product and info about it")]
     public class ProductPage : PageData
     {
@@ -49,5 +51,14 @@ namespace LIAuppgift.Models.Pages
             GroupName = SystemTabNames.Content,
             Order = 500)]
         public virtual ContentArea ContentArea { get; set; }
+
+        [UIHint(UIHint.Image)]
+        [CultureSpecific]
+        [Display(
+            Name = "Image",
+            Description = "Add image",
+            GroupName = SystemTabNames.Content,
+            Order = 600)]
+        public virtual ContentReference TestImage { get; set; }
     }
 }
