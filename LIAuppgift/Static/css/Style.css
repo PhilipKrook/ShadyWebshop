@@ -31,24 +31,26 @@ footer {
 .product-overview {
     display: flex;
     justify-content: space-between;
+    padding-right: 20px;
 }
 
 .product-id {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-
     margin: 5px;
     padding: 5px;
 }
 
 .product-image {
-    margin: 10px;
+    border-radius: 5px;
+    max-width: 400px;
+    height: auto;
 }
 
 .product-info {
     margin-top: 20px;
-    margin-bottom: 100px; 
+    margin-bottom: 100px;
     max-width: 700px;
 }
 
@@ -56,13 +58,14 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
     padding: 20px;
 }
 
 .product-price {
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    padding-top: 15px;
 }
 
 .button-buy {
@@ -78,12 +81,12 @@ footer {
     padding: 10px 15px;
 }
 
-.button-buy:hover {
-    background-color: #4CAF50;
-    color: white;
-}
+    .button-buy:hover {
+        background-color: #4CAF50;
+        color: white;
+    }
 
-/* All Products Page */
+/* Listing Products Page */
 
 .products-all {
     display: flex;
@@ -94,6 +97,11 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    justify-content: space-between;
     margin: 20px;
+}
+
+.product-listing-image {
+    max-width: 150px;
+    height: auto;
 }
