@@ -17,26 +17,17 @@
     <div>
         <h1>Listing all products</h1>
 
-        @Html.PropertyFor(m => Model.CurrentPage.MainBody)
-        <p>@Html.PropertyFor(m => Model.CurrentPage.ProductType)</p>
-
-        
-
         <div class="products-all">
             @foreach (var product in Model.Products)
-             {
+            {
                 <div class="products-single">
-                    <img class="" src="~/Static/gfx/image404.png" alt="" />
-                    <a href="~/Views/ProductPage/Index.cshtml"><h3>@product.Heading</h3></a>
+                    <div @Html.EditAttributes(x => product.ProductImage)>
+                        <img class="product-listing-image" src="@Url.ContentUrl(product.ProductImage)" />
+                    </div>
+                    <h4><a href="@Url.ContentUrl(product.ContentLink)">@product.Heading</a></h4>
                 </div>
-             }
-
-     @* <div class="products-single">
-            <img class="" src="~/Static/gfx/image404.png" alt="" />
-            <a href="~/Views/ProductPage/Index.cshtml"><h4>Product title</h4></a>
-        </div>*@
-
-        </div>    
+            }
+        </div>
     </div>
 </body>
 </html>

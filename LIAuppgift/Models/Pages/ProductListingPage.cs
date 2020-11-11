@@ -7,23 +7,18 @@ using EPiServer.SpecializedProperties;
 
 namespace LIAuppgift.Models.Pages
 {
+    using EPiServer.Web;
+
     [ContentType(DisplayName = "All Products Page", GUID = "0b13e4f2-6d41-42dd-b91f-38f3ef2ae863", Description = "")]
     public class ProductListingPage : PageData
     {
+        [UIHint(UIHint.Image)]
         [CultureSpecific]
         [Display(
-            Name = "Main body",
-            Description = "",
+            Name = "Image",
+            Description = "Add Image",
             GroupName = SystemTabNames.Content,
-            Order = 100)]
-        public virtual XhtmlString MainBody { get; set; }
-
-        [CultureSpecific]
-        [Display(
-            Name = "Product type",
-            Description = "",
-            GroupName = SystemTabNames.Content,
-            Order = 200)]
-        public virtual string ProductType { get; set; }
+            Order = 500)]
+        public virtual ContentReference ProductImage { get; set; }
     }
 }

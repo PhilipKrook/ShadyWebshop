@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
+using EPiServer.Framework.DataAnnotations;
 using EPiServer.SpecializedProperties;
 
 namespace LIAuppgift.Models.Pages
@@ -14,7 +15,7 @@ namespace LIAuppgift.Models.Pages
     {
         [CultureSpecific]
         [Display(
-             Name = "Product title",
+             Name = "Title",
              Description = "",
              GroupName = SystemTabNames.Content,
              Order = 100)]
@@ -22,8 +23,8 @@ namespace LIAuppgift.Models.Pages
 
         [CultureSpecific]
         [Display(
-            Name = "Product description",
-            Description = "",
+            Name = "Description",
+            Description = "Add the products description",
             GroupName = SystemTabNames.Content,
             Order = 200)]
         public virtual XhtmlString MainBody { get; set; }
@@ -38,27 +39,19 @@ namespace LIAuppgift.Models.Pages
 
         [CultureSpecific]
         [Display(
-            Name = "Product Price",
-            Description = "",
+            Name = "Price",
             GroupName = SystemTabNames.Content,
             Order = 400)]
-        public virtual string ProductPrice { get; set; }
-
-        [CultureSpecific]
-        [Display(
-            Name = "Content Area - add image",
-            Description = "Add image",
-            GroupName = SystemTabNames.Content,
-            Order = 500)]
-        public virtual ContentArea ContentArea { get; set; }
+        public virtual string Price { get; set; }
 
         [UIHint(UIHint.Image)]
         [CultureSpecific]
         [Display(
             Name = "Image",
-            Description = "Add image",
+            Description = "Add Image",
             GroupName = SystemTabNames.Content,
-            Order = 600)]
-        public virtual ContentReference TestImage { get; set; }
+            Order = 500)]
+        public virtual ContentReference ProductImage { get; set; }
+
     }
 }
