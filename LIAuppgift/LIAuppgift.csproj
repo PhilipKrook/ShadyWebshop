@@ -216,6 +216,7 @@
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
+    <Compile Include="Controllers\CartPageController.cs" />
     <Compile Include="Controllers\ProductListingPageController.cs" />
     <Compile Include="Controllers\ProductPageController.cs" />
     <Compile Include="Controllers\StandardPageController.cs" />
@@ -226,6 +227,7 @@
     <Compile Include="Models\Blocks\SuperBlock.cs" />
     <Compile Include="Models\Media\ImageFile.cs" />
     <Compile Include="Models\Media\GenericMedia.cs" />
+    <Compile Include="Models\Pages\CartPage.cs" />
     <Compile Include="Models\Pages\ProductListingPage.cs" />
     <Compile Include="Models\Pages\ProductPage.cs" />
     <Compile Include="Models\Pages\StandardPage.cs" />
@@ -275,6 +277,7 @@
     <Content Include="Views\ProductPage\Index.cshtml" />
     <Content Include="Views\ProductListingPage\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Image.cshtml" />
+    <Content Include="Views\CartPage\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
