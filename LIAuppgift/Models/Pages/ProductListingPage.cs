@@ -9,7 +9,7 @@ namespace LIAuppgift.Models.Pages
 {
     using EPiServer.Web;
 
-    [ContentType(DisplayName = "All Products Page", GUID = "0b13e4f2-6d41-42dd-b91f-38f3ef2ae863", Description = "")]
+    [ContentType(DisplayName = "All Products Page", GUID = "0b13e4f2-6d41-42dd-b91f-38f3ef2ae863", Description = "Lists all products")]
     public class ProductListingPage : PageData
     {
         [UIHint(UIHint.Image)]
