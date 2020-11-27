@@ -14,6 +14,7 @@ namespace LIAuppgift.Controllers
     using Models.ViewModels;
     using EPiServer.Core;
     using System.Data.Entity;
+    using System.ComponentModel.DataAnnotations;
 
     public class CartPageController : PageController<CartPage>
     {
@@ -23,38 +24,35 @@ namespace LIAuppgift.Controllers
         }
     }
 
-    public class Program
-    {
     
-    static void Main(string[] args)
+    
+    public class CartRepository
     {
-
-        using (CartContext ctx = new CartContext())
+        public void Add(CartItemEntity item)
         {
-            var addedCartItem = new CartItem() { itemName = "Sony TV" };
-
-            ctx.CartItems.Add(addedCartItem);
-            ctx.SaveChanges();
-
-                Console.Write("Item saved successfully!");
-                Console.ReadLine();
+            using (CartContext ctx = new CartContext())
+            {
+                ctx.CartItems.Add(item);                
+                ctx.SaveChanges();                
             }
-    }
+        }
+    }     
 
     public class CartContext : DbContext
     {
-        public CartContext() : base()
+        public CartContext() : base("name=EPiServerDB")
         {
         }
-        public DbSet<CartItem> CartItems { get; set; }
+        public DbSet<CartItemEntity> CartItems { get; set; }
     }
 
-    public class CartItem
+    public class CartItemEntity
     {
-        public int itemId { get; set; }
-        public string itemName { get; set; }
-        public int itemAmount { get; set; }
-        public int itemPrice { get; set; }
-    }
-    }
+        [Key]
+        public int Id { get; set; }
+
+        public int ProductId { get; set; }
+        public string Name { get; set; }
+        public int Price { get; set; }
+    }    
 }
