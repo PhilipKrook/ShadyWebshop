@@ -15,6 +15,9 @@ namespace LIAuppgift.Controllers
     using EPiServer.Core;
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations;
+    using System.Data.Entity.Migrations;
+    using EPiServer.Framework.Initialization;
+    using EPiServer.Framework;
 
     public class CartPageController : PageController<CartPage>
     {
@@ -40,6 +43,7 @@ namespace LIAuppgift.Controllers
     {
         public CartContext() : base("name=EPiServerDB")
         {
+        
         }
         public DbSet<CartItemEntity> CartItems { get; set; }
     }
@@ -51,5 +55,28 @@ namespace LIAuppgift.Controllers
         public int ProductId { get; set; }
         public string Name { get; set; }
         public int Price { get; set; }
-    }    
+        public string userId { get; set; }
+    }
+
+    internal sealed class CartConfiguration : DbMigrationsConfiguration<CartContext>
+    {
+        public CartConfiguration()
+        {
+            this.AutomaticMigrationsEnabled = true;
+           /*  this.ContextKey = "Kommunal.Intranat.Domain.Personalization.PersonalizationDbContext"; */
+            this.AutomaticMigrationDataLossAllowed = true;
+        }
+    }
+
+    [ModuleDependency(typeof(EPiServer.Web.InitializationModule))]
+    public class MigrationsInitializationModule : IInitializableModule
+    {
+        public void Initialize(InitializationEngine context)
+        {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<CartContext, CartConfiguration>());
+        }
+        public void Uninitialize(InitializationEngine context)
+        {
+        }
+    }
 }
