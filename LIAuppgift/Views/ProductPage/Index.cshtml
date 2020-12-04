@@ -25,8 +25,10 @@
             </div>
             <div class="product-price">
                 Price:  @Html.PropertyFor(m => Model.Price)
-                <input type="button" Class="button-buy" onclick="@Url.Action("Submit")" value="Buy" />
-                @*@Model.ContentLink.ID*@
+                <form method="post" action="@Url.ContentUrl(Model.ContentLink)">
+                    <input type="hidden" value="@Model.ContentLink.ID" name="productId"/>
+                    <button type="submit" Class="button-buy" value="Buy" />
+                </form>
             </div>
         </div>
     </div>

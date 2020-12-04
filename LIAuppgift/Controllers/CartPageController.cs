@@ -22,9 +22,7 @@ namespace LIAuppgift.Controllers
         {
             return View("~/Views/CartPage/Index.cshtml", currentPage);
         }
-    }
-
-    
+    }    
     
     public class CartRepository
     {
@@ -50,7 +48,6 @@ namespace LIAuppgift.Controllers
     {
         [Key]
         public int Id { get; set; }
-
         public int ProductId { get; set; }
         public string Name { get; set; }
         public int Price { get; set; }

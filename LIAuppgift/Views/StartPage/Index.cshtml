@@ -3,3 +3,13 @@
 
 @model LIAuppgift.Models.Pages.StartPage
 
+<div>
+    <h1>@Html.PropertyFor(m => m.Heading)</h1>
+    <div>
+        @Html.PropertyFor(m => m.MainBody)
+    </div>
+    <div>
+        @Html.PropertyFor(m => m.ContentArea)
+    </div>
+
+</div>
