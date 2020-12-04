@@ -81,10 +81,11 @@ footer {
     padding: 10px 15px;
 }
 
-    .button-buy:hover {
-        background-color: #4CAF50;
-        color: white;
-    }
+.button-buy:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
 
 /* Listing Products Page */
 
