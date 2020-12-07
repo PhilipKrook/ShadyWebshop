@@ -42,8 +42,7 @@ namespace LIAuppgift.Controllers
     public class CartContext : DbContext
     {
         public CartContext() : base("name=EPiServerDB")
-        {
-        
+        {        
         }
         public DbSet<CartItemEntity> CartItems { get; set; }
     }
@@ -55,7 +54,7 @@ namespace LIAuppgift.Controllers
         public int ProductId { get; set; }
         public string Name { get; set; }
         public int Price { get; set; }
-        public string userId { get; set; }
+        public string UserId { get; set; }
     }
 
     internal sealed class CartConfiguration : DbMigrationsConfiguration<CartContext>
@@ -63,7 +62,6 @@ namespace LIAuppgift.Controllers
         public CartConfiguration()
         {
             this.AutomaticMigrationsEnabled = true;
-           /*  this.ContextKey = "Kommunal.Intranat.Domain.Personalization.PersonalizationDbContext"; */
             this.AutomaticMigrationDataLossAllowed = true;
         }
     }
