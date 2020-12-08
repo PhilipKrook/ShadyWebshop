@@ -20,5 +20,10 @@ namespace LIAuppgift.Models.Pages
             GroupName = SystemTabNames.Content,
             Order = 500)]
         public virtual ContentReference ProductImage { get; set; }
+
+        public static implicit operator ProductListingPage(CartPage v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

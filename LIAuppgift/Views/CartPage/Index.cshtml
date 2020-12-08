@@ -1,5 +1,30 @@
 ﻿@using EPiServer.Core
 @using EPiServer.Web.Mvc.Html
 
-@model LIAuppgift.Models.Pages.CartPage
+@model LIAuppgift.Models.ViewModels.CartPageViewModel
 
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Static/css/Style.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <div>
+        @if (Model.CartItems == null)
+        {
+            Console.WriteLine("CartItems is null");
+        }
+        @foreach (var cartItem in Model.CartItems)
+        {
+            <div>
+                <h4>@cartItem.Name</h4>
+            </div>
+        }
+    </div>
+</body>
+</html>

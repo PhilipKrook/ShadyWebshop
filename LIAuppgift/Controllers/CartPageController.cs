@@ -23,22 +23,55 @@ namespace LIAuppgift.Controllers
     {
         public ActionResult Index(CartPage currentPage)
         {
-            return View("~/Views/CartPage/Index.cshtml", currentPage);
+            var cartViewModel = new CartPageViewModel();
+            cartViewModel.CurrentPage = currentPage;
+
+            var cartCookie = this.Request.Cookies.Get("cart");
+            if (cartCookie == null || string.IsNullOrWhiteSpace(cartCookie.Value))
+            {
+                return View("~/Views/CartPage/Index.cshtml", cartViewModel);
+            }
+
+            var cartRepository = new CartRepository();
+            var cartItems = cartRepository.Get(cartCookie.Value);
+            cartViewModel.CartItems = cartItems;
+            /*var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+            var cartProducts = contentLoader.GetChildren<ProductPage>(currentPage.ContentLink);            
+            cartViewModel.CartProducts = (IEnumerable<CartPage>)cartProducts;*/
+
+            return View("~/Views/CartPage/Index.cshtml", cartViewModel);
         }
-    }    
-    
+    }
+
     public class CartRepository
     {
         public void Add(CartItemEntity item)
         {
             using (CartContext ctx = new CartContext())
             {
-                ctx.CartItems.Add(item);                
-                ctx.SaveChanges();                
+                ctx.CartItems.Add(item);
+                ctx.SaveChanges();
             }
         }
-    }     
 
+        public CartItemEntity Get(int id)
+        {
+            using (CartContext ctx = new CartContext())
+            {
+                var cartItems = ctx.CartItems.SingleOrDefault(x => x.Id == id);
+                return cartItems;
+            }
+        }
+
+        public IEnumerable<CartItemEntity> Get(string userId)
+        {
+            using (CartContext ctx = new CartContext())
+            {
+                var cartItems = ctx.CartItems.Where(x => x.UserId == userId);
+                return cartItems;
+            }
+        }
+    }
     public class CartContext : DbContext
     {
         public CartContext() : base("name=EPiServerDB")
