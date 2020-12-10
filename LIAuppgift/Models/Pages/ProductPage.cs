@@ -1,13 +1,9 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using EPiServer.Core;
-using EPiServer.DataAbstraction;
-using EPiServer.DataAnnotations;
-using EPiServer.Framework.DataAnnotations;
-using EPiServer.SpecializedProperties;
-
-namespace LIAuppgift.Models.Pages
+﻿namespace LIAuppgift.Models.Pages
 {
+    using System.ComponentModel.DataAnnotations;
+    using EPiServer.Core;
+    using EPiServer.DataAbstraction;
+    using EPiServer.DataAnnotations;
     using EPiServer.Web;
 
     [ContentType(DisplayName = "Product Page", GUID = "2bbb5982-6606-4c62-9a18-181d08619c91", Description = "This page displays the product and info about it")]

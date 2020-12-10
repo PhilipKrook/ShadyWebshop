@@ -1,7 +1,4 @@
-﻿@using EPiServer.Core
-@using EPiServer.Web.Mvc.Html
-
-@model LIAuppgift.Models.ViewModels.CartPageViewModel
+﻿@model LIAuppgift.Models.ViewModels.CartPageViewModel
 
 <!DOCTYPE html>
 <html>
@@ -14,17 +11,25 @@
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
-    <div>
-        @if (Model.CartItems == null)
-        {
-            Console.WriteLine("CartItems is null");
-        }
+    @if (Model.CartItems == null)
+    {
+        Console.WriteLine("CartItems is null");
+    }
+    <ul class="cart-items">
         @foreach (var cartItem in Model.CartItems)
         {
-            <div>
-                <h4>@cartItem.Name</h4>
-            </div>
+            <li>
+                <div class="cart-item">
+                    <div class="cart-item-name">@cartItem.Name</div>
+                    <div class="cart-item-price">@cartItem.Price</div>
+                    <form method="post" action="">
+                        <input type="hidden" value="" name="" />
+                        <button type="submit" Class="button-remove">Remove</button>
+                    </form>
+                </div>
+            </li>
         }
-    </div>
+    </ul>
+
 </body>
 </html>

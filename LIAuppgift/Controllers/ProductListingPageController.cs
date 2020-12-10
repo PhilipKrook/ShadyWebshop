@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using EPiServer;
-
-namespace LIAuppgift.Controllers
+﻿namespace LIAuppgift.Controllers
 {
     using System.Web.Mvc;
-    using EPiServer.Web.Mvc;
+    using EPiServer;
     using EPiServer.ServiceLocation;
+    using EPiServer.Web.Mvc;
     using Models.Pages;
     using Models.ViewModels;
-    using EPiServer.Core;
 
     public class ProductListingPageController : PageController<ProductListingPage>
     {

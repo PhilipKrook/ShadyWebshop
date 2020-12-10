@@ -1,23 +1,16 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using EPiServer;
-
-namespace LIAuppgift.Controllers
+﻿namespace LIAuppgift.Controllers
 {
-    using System.Web.Mvc;
-    using EPiServer.Web.Mvc;
-    using EPiServer.ServiceLocation;
-    using Models.Pages;
-    using Models.ViewModels;
-    using EPiServer.Core;
-    using System.Data.Entity;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using EPiServer.Framework.Initialization;
+    using System.Linq;
+    using System.Web.Mvc;
     using EPiServer.Framework;
+    using EPiServer.Framework.Initialization;
+    using EPiServer.Web.Mvc;
+    using Models.Pages;
+    using Models.ViewModels;    
 
     public class CartPageController : PageController<CartPage>
     {
@@ -34,10 +27,7 @@ namespace LIAuppgift.Controllers
 
             var cartRepository = new CartRepository();
             var cartItems = cartRepository.Get(cartCookie.Value);
-            cartViewModel.CartItems = cartItems;
-            /*var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
-            var cartProducts = contentLoader.GetChildren<ProductPage>(currentPage.ContentLink);            
-            cartViewModel.CartProducts = (IEnumerable<CartPage>)cartProducts;*/
+            cartViewModel.CartItems = cartItems;           
 
             return View("~/Views/CartPage/Index.cshtml", cartViewModel);
         }
@@ -67,15 +57,16 @@ namespace LIAuppgift.Controllers
         {
             using (CartContext ctx = new CartContext())
             {
-                var cartItems = ctx.CartItems.Where(x => x.UserId == userId);
+                var cartItems = ctx.CartItems.Where(x => x.UserId == userId).ToList();
                 return cartItems;
             }
         }
     }
+
     public class CartContext : DbContext
     {
         public CartContext() : base("name=EPiServerDB")
-        {        
+        {
         }
         public DbSet<CartItemEntity> CartItems { get; set; }
     }

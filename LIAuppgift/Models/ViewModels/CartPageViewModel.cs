@@ -1,13 +1,9 @@
-﻿using System;
-using System.Linq;
-using System.Web;
-using EPiServer.Core;
-
-namespace LIAuppgift.Models.ViewModels
+﻿namespace LIAuppgift.Models.ViewModels
 {
     using System.Collections.Generic;
     using LIAuppgift.Controllers;
     using Pages;
+
     public class CartPageViewModel
     {
         public CartPage CurrentPage { get; set; }

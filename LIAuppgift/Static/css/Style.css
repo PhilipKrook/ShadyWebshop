@@ -106,3 +106,43 @@ footer {
     max-width: 150px;
     height: auto;
 }
+
+
+/* Cart Page */
+
+.cart-items {
+    display: flex;
+    flex-flow: wrap;
+    flex-direction: column;
+
+    margin: 20px;
+}
+
+.cart-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    max-width: 400px;
+}
+
+.cart-item-name {}
+
+.cart-item-price {}
+
+.button-remove {
+    background-color: #e7e7e7;
+    color: black;
+    transition-duration: 0.4s;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.button-remove:hover {
+    background-color: #f40606;
+    color: white;
+}

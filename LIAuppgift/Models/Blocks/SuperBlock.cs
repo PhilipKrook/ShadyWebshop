@@ -1,12 +1,11 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using EPiServer.Core;
-using EPiServer.DataAbstraction;
-using EPiServer.DataAnnotations;
-using EPiServer.Web;
-
-namespace LIAuppgift.Models.Blocks
+﻿namespace LIAuppgift.Models.Blocks
 {
+    using System;
+    using System.ComponentModel.DataAnnotations;
+    using EPiServer.Core;
+    using EPiServer.DataAbstraction;
+    using EPiServer.DataAnnotations;
+
     [ContentType(DisplayName = "SuperBlock",
                  GUID = "38d57768-e09e-4da9-90df-54c73c61b270",
                  Description = "Just me testing this block thing")]

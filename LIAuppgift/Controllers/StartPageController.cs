@@ -1,14 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
-using EPiServer;
-using EPiServer.Core;
-using EPiServer.Framework.DataAnnotations;
-using EPiServer.Web.Mvc;
-
-namespace LIAuppgift.Controllers
+﻿namespace LIAuppgift.Controllers
 {
+    using System.Web.Mvc;
+    using EPiServer.Web.Mvc;
     using Models.Pages;
+
     public class StartPageController : PageController<StartPage>
     {
         public ActionResult Index(StartPage currentPage)
