@@ -10,7 +10,7 @@
     using EPiServer.Framework.Initialization;
     using EPiServer.Web.Mvc;
     using Models.Pages;
-    using Models.ViewModels;    
+    using Models.ViewModels;
 
     public class CartPageController : PageController<CartPage>
     {
@@ -27,7 +27,7 @@
 
             var cartRepository = new CartRepository();
             var cartItems = cartRepository.Get(cartCookie.Value);
-            cartViewModel.CartItems = cartItems;           
+            cartViewModel.CartItems = cartItems;
 
             return View("~/Views/CartPage/Index.cshtml", cartViewModel);
         }
@@ -58,6 +58,28 @@
             using (CartContext ctx = new CartContext())
             {
                 var cartItems = ctx.CartItems.Where(x => x.UserId == userId).ToList();
+                /*if (cartItems == null)
+                {
+                    // Create a new cart item if no cart item exists.                 
+                    cartItems = new CartItems
+                    {
+                        ItemId = Guid.NewGuid().ToString(),
+                        ProductId = id,
+                        CartId = ShoppingCartId,
+                        Product = _db.Products.SingleOrDefault(
+                       p => p.ProductID == id),
+                        Quantity = 1,
+                        DateCreated = DateTime.Now
+                    };
+
+                    _db.ShoppingCartItems.Add(cartItem);
+                }
+                else
+                {
+                    // If the item does exist in the cart,                  
+                    // then add one to the quantity.                 
+                    cartItem.Quantity++;
+                }*/
                 return cartItems;
             }
         }
@@ -79,6 +101,7 @@
         public string Name { get; set; }
         public int Price { get; set; }
         public string UserId { get; set; }
+        public int Quantity { get; set; }
     }
 
     internal sealed class CartConfiguration : DbMigrationsConfiguration<CartContext>

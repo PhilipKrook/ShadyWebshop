@@ -346,9 +346,6 @@
       </violation>
     </violations>
   </sourcecode>
-  <project key="-146979742">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
   <sourcecode name="CartPageController.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2020-10-13 13:14:40.952</styleCop>
@@ -1320,4 +1317,7 @@
       </violation>
     </violations>
   </sourcecode>
+  <project key="-146979742">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
 </stylecopresultscache>

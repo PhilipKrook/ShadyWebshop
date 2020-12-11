@@ -126,9 +126,13 @@ footer {
     max-width: 400px;
 }
 
-.cart-item-name {}
+.cart-item-name {
+    margin: 2px;
+}
 
-.cart-item-price {}
+.cart-item-price {
+    margin: 2px;
+}
 
 .button-remove {
     background-color: #e7e7e7;
