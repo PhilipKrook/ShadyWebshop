@@ -11,10 +11,6 @@
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
-    @if (Model.CartItems == null)
-    {
-        Console.WriteLine("CartItems is null");
-    }
     <ul class="cart-items">
         @foreach (var cartItem in Model.CartItems)
         {
@@ -22,6 +18,7 @@
                 <div class="cart-item">
                     <div class="cart-item-name">@cartItem.Name</div>
                     <div class="cart-item-price">@cartItem.Price</div>
+                    <div class="cart-item-price">@cartItem.Quantity</div>
                     <form method="post" action="">
                         <input type="hidden" value="" name="" />
                         <button type="submit" Class="button-remove">Remove</button>

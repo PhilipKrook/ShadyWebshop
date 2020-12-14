@@ -57,29 +57,17 @@
         {
             using (CartContext ctx = new CartContext())
             {
-                var cartItems = ctx.CartItems.Where(x => x.UserId == userId).ToList();
-                /*if (cartItems == null)
-                {
-                    // Create a new cart item if no cart item exists.                 
-                    cartItems = new CartItems
+                var cartItems = ctx.CartItems
+                    .Where(x => x.UserId == userId).ToList()
+                    .GroupBy(item => item.ProductId)
+                    .Select(group => new CartItemEntity
                     {
-                        ItemId = Guid.NewGuid().ToString(),
-                        ProductId = id,
-                        CartId = ShoppingCartId,
-                        Product = _db.Products.SingleOrDefault(
-                       p => p.ProductID == id),
-                        Quantity = 1,
-                        DateCreated = DateTime.Now
-                    };
+                        ProductId = group.Key,
+                        Name = group.First().Name,
+                        Quantity = group.Count(),
+                        Price = group.First().Price * group.Count()
+                    }).ToList();
 
-                    _db.ShoppingCartItems.Add(cartItem);
-                }
-                else
-                {
-                    // If the item does exist in the cart,                  
-                    // then add one to the quantity.                 
-                    cartItem.Quantity++;
-                }*/
                 return cartItems;
             }
         }
@@ -97,11 +85,11 @@
     {
         [Key]
         public int Id { get; set; }
-        public int ProductId { get; set; }
-        public string Name { get; set; }
         public int Price { get; set; }
-        public string UserId { get; set; }
+        public int ProductId { get; set; }
         public int Quantity { get; set; }
+        public string Name { get; set; }
+        public string UserId { get; set; }
     }
 
     internal sealed class CartConfiguration : DbMigrationsConfiguration<CartContext>
