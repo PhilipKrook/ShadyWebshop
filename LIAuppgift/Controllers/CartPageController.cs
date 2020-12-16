@@ -65,7 +65,8 @@
                         ProductId = group.Key,
                         Name = group.First().Name,
                         Quantity = group.Count(),
-                        Price = group.First().Price * group.Count()
+                        Price = group.First().Price,
+                        SumPrice = group.First().Price * group.Count()
                     }).ToList();
 
                 return cartItems;
@@ -88,6 +89,7 @@
         public int Price { get; set; }
         public int ProductId { get; set; }
         public int Quantity { get; set; }
+        public int SumPrice { get; set; }
         public string Name { get; set; }
         public string UserId { get; set; }
     }

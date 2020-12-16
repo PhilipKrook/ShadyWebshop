@@ -11,22 +11,36 @@
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
-    <ul class="cart-items">
+    <h1 class="h1-cart">Shopping Cart</h1>
+    <table id="products">
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price (single)</th>
+            <th>Price (sum)</th>
+            <th class="remove-heading">
+                <div>Remove item</div>
+                <div><button type="submit" Class="button-remove">Remove</button></div>
+            </th>
+        </tr>
         @foreach (var cartItem in Model.CartItems)
         {
-            <li>
-                <div class="cart-item">
-                    <div class="cart-item-name">@cartItem.Name</div>
-                    <div class="cart-item-price">@cartItem.Price</div>
-                    <div class="cart-item-price">@cartItem.Quantity</div>
-                    <form method="post" action="">
-                        <input type="hidden" value="" name="" />
-                        <button type="submit" Class="button-remove">Remove</button>
-                    </form>
-                </div>
-            </li>
+    <tr>
+        <td>@cartItem.Name  </td>
+        <td>
+            <form>
+                <input type="number" id="" name="" value="@cartItem.Quantity">
+            </form>
+        </td>
+        <td>@cartItem.Price </td>
+        <td>@cartItem.SumPrice </td>
+        <td>
+            <form method="post" action="">
+                <input type="checkbox" value="" name="" />
+            </form>
+        </td>
+    </tr>
         }
-    </ul>
-
+    </table>
 </body>
 </html>
