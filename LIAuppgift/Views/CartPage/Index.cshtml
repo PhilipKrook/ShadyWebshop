@@ -20,23 +20,23 @@
             <th>Price (sum)</th>
             <th class="remove-heading">
                 <div>Remove item</div>
-                <div><button type="submit" Class="button-remove">Remove</button></div>
+                <div><button type="submit" Class="button-remove">X</button></div>
             </th>
         </tr>
         @foreach (var cartItem in Model.CartItems)
         {
     <tr>
-        <td>@cartItem.Name  </td>
+        <td>@cartItem.Name</td>
         <td>
             <form>
                 <input type="number" id="" name="" value="@cartItem.Quantity">
             </form>
         </td>
-        <td>@cartItem.Price </td>
-        <td>@cartItem.SumPrice </td>
+        <td>@cartItem.Price</td>
+        <td>@cartItem.SumPrice</td>
         <td>
             <form method="post" action="">
-                <input type="checkbox" value="" name="" />
+                <input type="checkbox" value="" name=""/>
             </form>
         </td>
     </tr>
