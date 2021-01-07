@@ -1,14 +1,14 @@
-﻿using System.Web.Mvc;
-using EPiServer;
-using EPiServer.Core;
-using EPiServer.Web.Mvc;
-using EPiServer.ServiceLocation;
-using LIAuppgift.Models.Pages;
-using System.Web;
-using System;
-
-namespace LIAuppgift.Controllers
+﻿namespace LIAuppgift.Controllers
 {
+    using System;
+    using System.Web;
+    using System.Web.Mvc;
+    using EPiServer;
+    using EPiServer.Core;
+    using EPiServer.ServiceLocation;
+    using EPiServer.Web.Mvc;
+    using LIAuppgift.Models.Pages;
+    
     public class ProductPageController : PageController<ProductPage>
     {
         public ActionResult Index(ProductPage currentPage)
