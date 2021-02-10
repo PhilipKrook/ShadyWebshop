@@ -1,0 +1,12 @@
+﻿@using EPiServer.Core
+@model EPiServer.Core.ContentReference
+@{
+    var cssClass = ViewData["CssClass"] ?? string.Empty;
+}
+
+@if (!ContentReference.IsNullOrEmpty(Model))
+{
+    <img class="@cssClass" src="@Url.ContentUrl(Model)" alt="" />
+}
+
+

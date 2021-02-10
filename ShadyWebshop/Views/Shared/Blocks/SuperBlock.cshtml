@@ -1,0 +1,9 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@model LIAuppgift.Models.Blocks.SuperBlock
+
+<div>
+    <h2>@Html.PropertyFor(x => x.Heading)</h2>
+    <img src="@Url.ContentUrl(Model.Image)" />
+</div>
