@@ -223,11 +223,11 @@
     <Compile Include="Controllers\ProductListingPageController.cs" />
     <Compile Include="Controllers\ProductPageController.cs" />
     <Compile Include="Controllers\StartPageController.cs" />
-    <Compile Include="Controllers\SuperBlockController.cs" />
+    <Compile Include="Controllers\TestBlockController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Blocks\SuperBlock.cs" />
+    <Compile Include="Models\Blocks\TestBlock.cs" />
     <Compile Include="Models\Media\ImageFile.cs" />
     <Compile Include="Models\Media\GenericMedia.cs" />
     <Compile Include="Models\Pages\CartPage.cs" />
@@ -273,7 +273,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
-    <Content Include="Views\Shared\Blocks\SuperBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\TestBlock.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Layouts\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
