@@ -6,10 +6,10 @@
     using EPiServer.DataAbstraction;
     using EPiServer.DataAnnotations;
 
-    [ContentType(DisplayName = "SuperBlock",
+    [ContentType(DisplayName = "TestBlock",
                  GUID = "38d57768-e09e-4da9-90df-54c73c61b270",
-                 Description = "Just me testing this block thing")]
-    public class SuperBlock : BlockData
+                 Description = "Testing block")]
+    public class TestBlock : BlockData
     {
         [CultureSpecific]
         [Display(Name = "Block heading",

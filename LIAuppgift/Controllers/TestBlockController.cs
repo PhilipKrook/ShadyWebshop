@@ -4,9 +4,9 @@
     using EPiServer.Web.Mvc;
     using LIAuppgift.Models.Blocks;
 
-    public class SuperBlockController : BlockController<SuperBlock>
+    public class TestBlockController : BlockController<TestBlock>
     {
-        public override ActionResult Index(SuperBlock currentBlock)
+        public override ActionResult Index(TestBlock currentBlock)
         {
             return PartialView("~/Views/Shared/Blocks/SuperBlock.cshtml", currentBlock);
         }
