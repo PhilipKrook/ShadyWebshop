@@ -7,9 +7,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("LIAuppgift")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("EVRY Corporate IT")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("LIAuppgift")]
-[assembly: AssemblyCopyright("Copyright © EVRY Corporate IT 2020")]
+[assembly: AssemblyCopyright("Copyright © Philip Krook")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

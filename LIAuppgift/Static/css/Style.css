@@ -15,6 +15,12 @@
     margin: 5px 5px;
 }
 
+.accountico {
+    max-height: 30px;
+    max-width: 30px;
+    margin: 5px 5px;
+}
+
 .navbar-brand {
     float: left;
 }
