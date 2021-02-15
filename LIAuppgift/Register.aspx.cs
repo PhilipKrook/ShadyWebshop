@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.Owin.Security;
-using System;
-using System.Linq;
-using System.Web;
-
-namespace WebFormsIdentity
+﻿namespace WebFormsIdentity
 {
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using Microsoft.Owin.Security;
+    using System;
+    using System.Linq;
+    using System.Web;
+
     public partial class Register : System.Web.UI.Page
     {
         protected void CreateUser_Click(object sender, EventArgs e)
