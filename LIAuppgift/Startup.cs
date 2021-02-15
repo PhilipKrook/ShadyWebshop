@@ -1,10 +1,7 @@
 ﻿using Microsoft.Owin;
 using Owin;
-using System;
-using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security.Cookies;
-
 
 [assembly: OwinStartup(typeof(LIAuppgift.Startup))]
 
