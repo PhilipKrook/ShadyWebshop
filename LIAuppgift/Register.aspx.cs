@@ -1,5 +1,6 @@
 ﻿namespace WebFormsIdentity
 {
+    using LIAuppgift.Models.Entities;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Microsoft.Owin.Security;
@@ -12,9 +13,14 @@
         protected void CreateUser_Click(object sender, EventArgs e)
         {
             // Default UserStore constructor uses the default connection string named: DefaultConnection
-            var userStore = new UserStore<IdentityUser>();
-            var manager = new UserManager<IdentityUser>(userStore);
-            var user = new IdentityUser() { UserName = UserName.Text };
+            var userStore = new UserStore<ApplicationUser>();
+            var manager = new UserManager<ApplicationUser>(userStore);
+            var user = new ApplicationUser() {
+                UserName = UserName.Text, 
+                Email = Email.Text, 
+                PhoneNumber = PhoneNumber.Text, 
+                Address = Address.Text
+            };
 
             IdentityResult result = manager.Create(user, Password.Text);
 

@@ -21,6 +21,24 @@
             </div>
         </div>
         <div style="margin-bottom:10px">
+            <asp:Label runat="server" AssociatedControlID="Email">Email</asp:Label>
+            <div>
+                <asp:TextBox runat="server" ID="Email" />                
+            </div>
+        </div>
+        <div style="margin-bottom:10px">
+            <asp:Label runat="server" AssociatedControlID="PhoneNumber">Phone number</asp:Label>
+            <div>
+                <asp:TextBox runat="server" ID="PhoneNumber" />                
+            </div>
+        </div>
+        <div style="margin-bottom:10px">
+            <asp:Label runat="server" AssociatedControlID="Address">Address</asp:Label>
+            <div>
+                <asp:TextBox runat="server" ID="Address" />                
+            </div>
+        </div>
+        <div style="margin-bottom:10px">
             <asp:Label runat="server" AssociatedControlID="Password">Password</asp:Label>
             <div>
                 <asp:TextBox runat="server" ID="Password" TextMode="Password" />                

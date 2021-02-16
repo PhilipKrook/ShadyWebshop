@@ -265,6 +265,7 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Blocks\TestBlock.cs" />
+    <Compile Include="Models\Entities\ApplicationUser.cs" />
     <Compile Include="Models\Media\ImageFile.cs" />
     <Compile Include="Models\Media\GenericMedia.cs" />
     <Compile Include="Models\Pages\CartPage.cs" />
