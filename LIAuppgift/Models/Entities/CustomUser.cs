@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using EPiServer.Cms.UI.AspNetIdentity;
+using EPiServer.Shell.Security;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Web;
 
 namespace LIAuppgift.Models.Entities
 {
-    public class ApplicationUser : IdentityUser
+    public class CustomUser : ApplicationUser
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
