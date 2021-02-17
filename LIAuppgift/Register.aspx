@@ -13,17 +13,23 @@
         <hr />
         <p>
             <asp:Literal runat="server" ID="StatusMessage" />
-        </p>                
-        <div style="margin-bottom:10px">
-            <asp:Label runat="server" AssociatedControlID="UserName">User name</asp:Label>
-            <div>
-                <asp:TextBox runat="server" ID="UserName" />                
-            </div>
-        </div>
+        </p>        
         <div style="margin-bottom:10px">
             <asp:Label runat="server" AssociatedControlID="Email">Email</asp:Label>
             <div>
                 <asp:TextBox runat="server" ID="Email" />                
+            </div>
+        </div>
+        <div style="margin-bottom:10px">
+            <asp:Label runat="server" AssociatedControlID="FirstName">First name</asp:Label>
+            <div>
+                <asp:TextBox runat="server" ID="FirstName" />                
+            </div>
+        </div>
+        <div style="margin-bottom:10px">
+            <asp:Label runat="server" AssociatedControlID="LastName">Last name</asp:Label>
+            <div>
+                <asp:TextBox runat="server" ID="LastName" />                
             </div>
         </div>
         <div style="margin-bottom:10px">
@@ -33,9 +39,21 @@
             </div>
         </div>
         <div style="margin-bottom:10px">
-            <asp:Label runat="server" AssociatedControlID="Address">Address</asp:Label>
+            <asp:Label runat="server" AssociatedControlID="StreetAddress">Street address</asp:Label>
             <div>
-                <asp:TextBox runat="server" ID="Address" />                
+                <asp:TextBox runat="server" ID="StreetAddress" />                
+            </div>
+        </div>
+        <div style="margin-bottom:10px">
+            <asp:Label runat="server" AssociatedControlID="City">City</asp:Label>
+            <div>
+                <asp:TextBox runat="server" ID="City" />                
+            </div>
+        </div>
+        <div style="margin-bottom:10px">
+            <asp:Label runat="server" AssociatedControlID="PostCode">Post code</asp:Label>
+            <div>
+                <asp:TextBox runat="server" ID="PostCode" />                
             </div>
         </div>
         <div style="margin-bottom:10px">

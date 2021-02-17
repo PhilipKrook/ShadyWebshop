@@ -1,5 +1,6 @@
 ﻿namespace WebFormsIdentity
 {
+    using LIAuppgift.Models.Entities;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Microsoft.Owin.Security;
@@ -14,7 +15,7 @@
             {
                 if (User.Identity.IsAuthenticated)
                 {
-                    StatusText.Text = string.Format("Hello {0}!!", User.Identity.GetUserName());
+                    StatusText.Text = string.Format("Hello {0}!!", User.Identity.GetUserName());  // Check email not name
                     LoginStatus.Visible = true;
                     LogoutButton.Visible = true;
                 }
@@ -27,9 +28,9 @@
 
         protected void SignIn(object sender, EventArgs e)
         {
-            var userStore = new UserStore<IdentityUser>();
-            var userManager = new UserManager<IdentityUser>(userStore);
-            var user = userManager.Find(UserName.Text, Password.Text);
+            var userStore = new UserStore<ApplicationUser>();
+            var userManager = new UserManager<ApplicationUser>(userStore);
+            var user = userManager.Find(Email.Text, Password.Text);
 
             if (user != null)
             {
@@ -41,7 +42,7 @@
             }
             else
             {
-                StatusText.Text = "Invalid username or password.";
+                StatusText.Text = "Invalid email or password.";
                 LoginStatus.Visible = true;
             }
         }

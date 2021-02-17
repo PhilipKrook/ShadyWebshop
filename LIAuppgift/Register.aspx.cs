@@ -16,10 +16,14 @@
             var userStore = new UserStore<ApplicationUser>();
             var manager = new UserManager<ApplicationUser>(userStore);
             var user = new ApplicationUser() {
-                UserName = UserName.Text, 
+                // UserName = UserName.Text, 
+                FirstName = FirstName.Text,
+                LastName = LastName.Text,
                 Email = Email.Text, 
                 PhoneNumber = PhoneNumber.Text, 
-                Address = Address.Text
+                StreetAddress = StreetAddress.Text,
+                City = City.Text,
+                PostCode = PostCode.Text
             };
 
             IdentityResult result = manager.Create(user, Password.Text);
