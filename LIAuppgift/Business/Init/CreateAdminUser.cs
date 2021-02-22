@@ -43,7 +43,6 @@ namespace LIAuppgift.Business.Init
                 UserName = username,
                 PasswordHash = passwordHash,
                 SecurityStamp = Guid.NewGuid().ToString(),
-                StreetAddress = "street test"
             };
             store.CreateAsync(applicationUser).GetAwaiter().GetResult();
             // Get the user associated with our username

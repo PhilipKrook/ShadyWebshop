@@ -1,6 +1,6 @@
 ﻿namespace WebFormsIdentity
 {
-    using LIAuppgift.Models.Entities;
+    using LIAuppgift.Models.Entites;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Microsoft.Owin.Security;
@@ -28,8 +28,8 @@
 
         protected void SignIn(object sender, EventArgs e)
         {
-            var userStore = new UserStore<ApplicationUser>();
-            var userManager = new UserManager<ApplicationUser>(userStore);
+            var userStore = new UserStore<CustomUser>();
+            var userManager = new UserManager<CustomUser>(userStore);
             var user = userManager.Find(Email.Text, Password.Text);
 
             if (user != null)

@@ -274,6 +274,8 @@
     <Compile Include="Models\Entites\CustomUser.cs" />
     <Compile Include="Models\Media\ImageFile.cs" />
     <Compile Include="Models\Media\GenericMedia.cs" />
+    <Compile Include="Models\Migrations\EPiServerDbContextConfiguraion.cs" />
+    <Compile Include="Models\Migrations\MigrateDatabaseToLatestVersionInitialization.cs" />
     <Compile Include="Models\Pages\CartPage.cs" />
     <Compile Include="Models\Pages\ProductListingPage.cs" />
     <Compile Include="Models\Pages\ProductPage.cs" />
