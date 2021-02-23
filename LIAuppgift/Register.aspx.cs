@@ -1,12 +1,12 @@
 ﻿namespace WebFormsIdentity
 {
-    using LIAuppgift.Models.Entites;
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.EntityFramework;
-    using Microsoft.Owin.Security;
     using System;
     using System.Linq;
     using System.Web;
+    using LIAuppgift.Models.Entites;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using Microsoft.Owin.Security;   
 
     public partial class Register : System.Web.UI.Page
     {

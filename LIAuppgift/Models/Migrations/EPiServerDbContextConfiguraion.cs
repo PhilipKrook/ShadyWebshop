@@ -1,10 +1,6 @@
 ﻿namespace LIAuppgift.Models.Migrations
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-    using System.Web;
+{   
+    using System.Data.Entity.Migrations;   
 
     internal sealed class EPiServerDbContextConfiguration : DbMigrationsConfiguration<Business.EntityFramework.EPiServerDbContext>
     {

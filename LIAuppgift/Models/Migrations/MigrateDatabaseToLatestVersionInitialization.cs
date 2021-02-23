@@ -1,14 +1,7 @@
 ﻿namespace LIAuppgift.Models.Migrations
 {
     using EPiServer.Cms.Shell;
-    using EPiServer.Data;
-    using EPiServer.Framework;
-    using LIAuppgift.Business.EntityFramework;
-    using System;
-    using System.Collections.Generic;
-    using System.Data.Entity;
-    using System.Linq;
-    using System.Web;
+    using EPiServer.Framework;    
 
     [ModuleDependency(typeof(EPiServer.Web.InitializationModule))]
     public class MigrateDatabaseToLatestVersionInitialization : InitializableModule

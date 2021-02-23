@@ -117,6 +117,7 @@
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<CartContext, CartConfiguration>());
         }
+
         public void Uninitialize(InitializationEngine context)
         {
         }

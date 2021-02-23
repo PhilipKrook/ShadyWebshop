@@ -1,11 +1,11 @@
 ﻿namespace WebFormsIdentity
 {
+    using System;
+    using System.Web;
     using LIAuppgift.Models.Entites;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
-    using Microsoft.Owin.Security;
-    using System;
-    using System.Web;
+    using Microsoft.Owin.Security;    
 
     public partial class Login : System.Web.UI.Page
     {
