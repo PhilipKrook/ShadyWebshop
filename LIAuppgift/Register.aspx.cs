@@ -3,6 +3,7 @@
     using System;
     using System.Linq;
     using System.Web;
+    using LIAuppgift.Business.EntityFramework;
     using LIAuppgift.Models.Entites;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
@@ -13,17 +14,18 @@
         protected void CreateUser_Click(object sender, EventArgs e)
         {
             // Default UserStore constructor uses the default connection string named: DefaultConnection
-            var userStore = new UserStore<CustomUser>();
+            var userStore = new UserStore<CustomUser>(new EPiServerDbContext());
             var manager = new UserManager<CustomUser>(userStore);
             var user = new CustomUser() {
-                // UserName = UserName.Text, 
+                UserName = UserName.Text, 
                 FirstName = FirstName.Text,
                 LastName = LastName.Text,
                 Email = Email.Text, 
                 PhoneNumber = PhoneNumber.Text, 
                 StreetAddress = StreetAddress.Text,
                 City = City.Text,
-                PostCode = PostCode.Text
+                PostCode = PostCode.Text,
+                ProviderName = "test name",
             };
 
             IdentityResult result = manager.Create(user, Password.Text);

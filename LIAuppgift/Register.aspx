@@ -13,7 +13,15 @@
         <hr />
         <p>
             <asp:Literal runat="server" ID="StatusMessage" />
-        </p>        
+        </p>
+        
+        <div style="margin-bottom:10px">
+            <asp:Label runat="server" AssociatedControlID="UserName">User name</asp:Label>
+            <div>
+                <asp:TextBox runat="server" ID="UserName" />                
+            </div>
+        </div>
+
         <div style="margin-bottom:10px">
             <asp:Label runat="server" AssociatedControlID="Email">Email</asp:Label>
             <div>

@@ -7,11 +7,12 @@
     using EPiServer.Framework.Initialization;
     using LIAuppgift.Business.EntityFramework;
     using LIAuppgift.Models.Entites;
+    using LIAuppgift.Models.Migrations;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
 
     [InitializableModule]
-    [ModuleDependency(typeof(EPiServer.Web.InitializationModule))] // , typeof(CustomSmrtDatabaseMigrationInitialization))]
+    [ModuleDependency(typeof(EPiServer.Web.InitializationModule), typeof(DatabaseMigrationsInitialization))] // , typeof(CustomSmrtDatabaseMigrationInitialization))]
     public class CreateAdminUser : IInitializableModule
     {
         private static readonly string[] Roles = { "WebAdmins", "WebEditors", "Creators", "Deleters", "Editors", "MasterEditors", "Publishers", "Readers", "ReadOnlyUsers", "SMTEditors", "SuperAdmins", "SuperEditors", "KanthalEditors", "AdditiveEditors" };
@@ -21,9 +22,9 @@
             using (UserStore<CustomUser> store = new UserStore<CustomUser>(new EPiServerDbContext()))
             {
                 // If there's already a user, then we don't need a seed
-                if (!store.Users.Any(x => x.UserName == "EpiMvcUser"))
+                if (!store.Users.Any(x => x.UserName == "EpiMvcUser1"))
                 {
-                    var createdUser = this.CreateUser(store, "EpiMvcUser", "EpimvcUser1234!", "epimvcuser@mvc.se");
+                    var createdUser = this.CreateUser(store, "EpiMvcUser1", "EpimvcUser1234!", "epimvcuser1@mvc.se");
                     this.AddUserToRoles(store, createdUser, Roles);
                     store.UpdateAsync(createdUser).GetAwaiter().GetResult();
                 }
@@ -42,7 +43,13 @@
                 IsApproved = true,
                 UserName = username,
                 PasswordHash = passwordHash,
-                SecurityStamp = Guid.NewGuid().ToString(),
+                FirstName = "test firstname",
+                LastName = "lastname test",
+                StreetAddress = "test streetaddress",
+                City = "test city",
+                PostCode = "postcode test",
+                CreationDate = DateTime.Now,                
+                SecurityStamp = Guid.NewGuid().ToString(),                
             };
             store.CreateAsync(applicationUser).GetAwaiter().GetResult();
 
@@ -57,28 +64,7 @@
 
         public void Preload(string[] parameters)
         {
-        }
-
-        /*private CustomUser CreateUser(UserStore<CustomUser> store, string username, string password, string email)
-        {
-            // We know that this Password hasher is used as it's configured
-            IPasswordHasher hasher = new PasswordHasher();
-            string passwordHash = hasher.HashPassword(password);
-            ApplicationUser applicationUser = new ApplicationUser
-            {
-                Email = email,
-                EmailConfirmed = true,
-                LockoutEnabled = true,
-                IsApproved = true,
-                UserName = username,
-                PasswordHash = passwordHash,
-                SecurityStamp = Guid.NewGuid().ToString(),
-            };
-            store.CreateAsync(applicationUser).GetAwaiter().GetResult();
-            // Get the user associated with our username
-            ApplicationUser createdUser = store.FindByNameAsync(username).GetAwaiter().GetResult();
-            return createdUser;
-        }*/
+        }        
 
         private void AddUserToRoles(UserStore<CustomUser> store, CustomUser user, string[] roles)
         {

@@ -7,6 +7,7 @@
         public EPiServerDbContextConfiguration()
         {
             this.AutomaticMigrationsEnabled = true;
+            this.AutomaticMigrationDataLossAllowed = true;
             this.MigrationsDirectory = @"Migrations\Identity";
             this.ContextKey = "EPiServer.Cms.UI.AspNetIdentity.ApplicationDbContext`1[Models.Entities.CustomUser]";
         }

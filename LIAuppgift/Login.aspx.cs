@@ -15,7 +15,7 @@
             {
                 if (User.Identity.IsAuthenticated)
                 {
-                    StatusText.Text = string.Format("Hello {0}!!", User.Identity.GetUserName());  // Check email not name
+                    StatusText.Text = string.Format("Hello {0}!!", User.Identity.GetUserName());
                     LoginStatus.Visible = true;
                     LogoutButton.Visible = true;
                 }
@@ -42,7 +42,7 @@
             }
             else
             {
-                StatusText.Text = "Invalid email or password.";
+                StatusText.Text = "Invalid user name or password.";
                 LoginStatus.Visible = true;
             }
         }

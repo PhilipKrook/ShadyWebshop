@@ -31,7 +31,7 @@
             var productPage = contentRepository.Get<ProductPage>(new ContentReference(int.Parse(productId)));
             var cartItem = new CartItemEntity();
             cartItem.ProductId = int.Parse(productId);
-            cartItem.Name = productPage.Name;
+            cartItem.ProductName = productPage.Name;
             cartItem.Price = int.Parse(productPage.Price);
             cartItem.UserId = cartCookie.Value;
 

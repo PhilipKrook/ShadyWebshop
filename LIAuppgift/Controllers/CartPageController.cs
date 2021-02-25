@@ -63,7 +63,7 @@
                     .Select(group => new CartItemEntity
                     {
                         ProductId = group.Key,
-                        Name = group.First().Name,
+                        ProductName = group.First().ProductName,
                         Quantity = group.Count(),
                         Price = group.First().Price,
                         SumPrice = group.First().Price * group.Count()
@@ -96,7 +96,7 @@
 
         public int SumPrice { get; set; }
 
-        public string Name { get; set; }
+        public string ProductName { get; set; }
 
         public string UserId { get; set; }
     }
