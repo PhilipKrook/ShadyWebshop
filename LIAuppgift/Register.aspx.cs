@@ -4,7 +4,7 @@
     using System.Linq;
     using System.Web;
     using LIAuppgift.Business.EntityFramework;
-    using LIAuppgift.Models.Entites;
+    using LIAuppgift.Models.Entities;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Microsoft.Owin.Security;   

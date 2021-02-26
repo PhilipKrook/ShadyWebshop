@@ -1,5 +1,5 @@
-﻿namespace LIAuppgift.Models.Migrations
-{   
+﻿namespace LIAuppgift.Business.Configuration
+{
     using System.Data.Entity.Migrations;   
 
     internal sealed class EPiServerDbContextConfiguration : DbMigrationsConfiguration<Business.EntityFramework.EPiServerDbContext>

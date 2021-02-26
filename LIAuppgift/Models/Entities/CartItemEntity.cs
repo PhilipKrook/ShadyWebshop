@@ -1,4 +1,4 @@
-﻿namespace LIAuppgift.Controllers
+﻿namespace LIAuppgift.Models.Entites
 {
     using System.ComponentModel.DataAnnotations;
 
@@ -15,7 +15,7 @@
 
         public int SumPrice { get; set; }
 
-        public string Name { get; set; }
+        public string ProductName { get; set; }
 
         public string UserId { get; set; }
     }

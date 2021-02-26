@@ -2,7 +2,8 @@
 {
     using System;
     using System.Web;
-    using LIAuppgift.Models.Entites;
+    using LIAuppgift.Business.EntityFramework;
+    using LIAuppgift.Models.Entities;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Microsoft.Owin.Security;    
@@ -28,7 +29,7 @@
 
         protected void SignIn(object sender, EventArgs e)
         {
-            var userStore = new UserStore<CustomUser>();
+            var userStore = new UserStore<CustomUser>(new EPiServerDbContext());
             var userManager = new UserManager<CustomUser>(userStore);
             var user = userManager.Find(Email.Text, Password.Text);
 

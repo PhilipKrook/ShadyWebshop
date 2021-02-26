@@ -1,7 +1,7 @@
 ﻿namespace LIAuppgift.Models.ViewModels
 {
     using System.Collections.Generic;
-    using LIAuppgift.Controllers;
+    using LIAuppgift.Models.Entites;
     using Pages;
 
     public class CartPageViewModel

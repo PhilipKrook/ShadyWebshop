@@ -1,5 +1,6 @@
-﻿namespace LIAuppgift.Controllers
+﻿namespace LIAuppgift.Business.Configuration
 {
+    using LIAuppgift.Business.EntityFramework;
     using System.Data.Entity.Migrations;
 
     internal sealed class CartConfiguration : DbMigrationsConfiguration<CartContext>

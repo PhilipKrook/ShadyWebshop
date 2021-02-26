@@ -1,14 +1,11 @@
-﻿using EPiServer.Framework;
-using EPiServer.Framework.Initialization;
-using LIAuppgift.Business.EntityFramework;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
-
-namespace LIAuppgift.Models.Migrations
+﻿namespace LIAuppgift.Business.Initialization
 {
+    using EPiServer.Framework;
+    using EPiServer.Framework.Initialization;
+    using LIAuppgift.Business.Configuration;
+    using LIAuppgift.Business.EntityFramework;
+    using System.Data.Entity;
+
     [ModuleDependency(typeof(EPiServer.Web.InitializationModule))]
     public class DatabaseMigrationsInitialization : IInitializableModule
     {

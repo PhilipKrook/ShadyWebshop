@@ -253,8 +253,11 @@
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
+    <Compile Include="Business\Configuration\CartConfiguration.cs" />
+    <Compile Include="Business\EntityFramework\CartContext.cs" />
     <Compile Include="Business\EntityFramework\EPiServerDBContext.cs" />
-    <Compile Include="Business\Init\CreateAdminUser.cs" />
+    <Compile Include="Business\Initialization\CreateAdminUser.cs" />
+    <Compile Include="Business\Repositories\CartRepository.cs" />
     <Compile Include="Controllers\CartPageController.cs" />
     <Compile Include="Controllers\ProductListingPageController.cs" />
     <Compile Include="Controllers\ProductPageController.cs" />
@@ -275,19 +278,19 @@
       <DependentUpon>202102250926511_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Blocks\TestBlock.cs" />
-    <Compile Include="Models\Entites\CustomUser.cs" />
+    <Compile Include="Models\Entities\CustomUser.cs" />
+    <Compile Include="Models\Entities\CartItemEntity.cs" />
     <Compile Include="Models\Media\ImageFile.cs" />
     <Compile Include="Models\Media\GenericMedia.cs" />
-    <Compile Include="Models\Migrations\DatebaseMigrationsInitialization.cs" />
-    <Compile Include="Models\Migrations\EPiServerDbContextConfiguraion.cs" />
-    <Compile Include="Models\Migrations\MigrateDatabaseToLatestVersionInitialization.cs" />
+    <Compile Include="Business\Initialization\DatebaseMigrationsInitialization.cs" />
+    <Compile Include="Business\Configuration\EPiServerDbContextConfiguraion.cs" />
     <Compile Include="Models\Pages\CartPage.cs" />
     <Compile Include="Models\Pages\ProductListingPage.cs" />
     <Compile Include="Models\Pages\ProductPage.cs" />
     <Compile Include="Models\Pages\StartPage.cs" />
     <Compile Include="Models\ViewModels\CartPageViewModel.cs" />
     <Compile Include="Models\ViewModels\ProductListingPageViewModel.cs" />
-    <Compile Include="modules\InitializationModule.cs" />
+    <Compile Include="Business\Initialization\MigrationsInitializationModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

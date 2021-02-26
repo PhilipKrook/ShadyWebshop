@@ -1,5 +1,7 @@
-﻿namespace LIAuppgift.Controllers
+﻿namespace LIAuppgift.Business.Repositories
 {
+    using LIAuppgift.Business.EntityFramework;
+    using LIAuppgift.Models.Entites;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -33,7 +35,7 @@
                     .Select(group => new CartItemEntity
                     {
                         ProductId = group.Key,
-                        Name = group.First().Name,
+                        ProductName = group.First().ProductName,
                         Quantity = group.Count(),
                         Price = group.First().Price,
                         SumPrice = group.First().Price * group.Count()

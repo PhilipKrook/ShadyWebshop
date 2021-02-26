@@ -9,9 +9,9 @@ namespace LIAuppgift
     using Microsoft.AspNet.Identity;
     using Microsoft.Owin.Security.Cookies;
     using EPiServer.Cms.UI.AspNetIdentity;
-    using LIAuppgift.Models.Entites;
     using Microsoft.AspNet.Identity.Owin;
     using Owin;
+    using LIAuppgift.Models.Entities;
 
     public class Startup
     {

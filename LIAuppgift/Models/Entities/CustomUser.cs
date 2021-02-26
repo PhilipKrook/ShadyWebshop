@@ -1,4 +1,4 @@
-﻿namespace LIAuppgift.Models.Entites
+﻿namespace LIAuppgift.Models.Entities
 {
     using System;
     using System.ComponentModel.DataAnnotations.Schema;

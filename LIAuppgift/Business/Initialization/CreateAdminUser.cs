@@ -1,4 +1,4 @@
-﻿namespace LIAuppgift.Business.Init
+﻿namespace LIAuppgift.Business.Initialization
 {
     using System;
     using System.Collections.Generic;
@@ -6,8 +6,7 @@
     using EPiServer.Framework;
     using EPiServer.Framework.Initialization;
     using LIAuppgift.Business.EntityFramework;
-    using LIAuppgift.Models.Entites;
-    using LIAuppgift.Models.Migrations;
+    using LIAuppgift.Models.Entities;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -15,16 +14,16 @@
     [ModuleDependency(typeof(EPiServer.Web.InitializationModule), typeof(DatabaseMigrationsInitialization))] // , typeof(CustomSmrtDatabaseMigrationInitialization))]
     public class CreateAdminUser : IInitializableModule
     {
-        private static readonly string[] Roles = { "WebAdmins", "WebEditors", "Creators", "Deleters", "Editors", "MasterEditors", "Publishers", "Readers", "ReadOnlyUsers", "SMTEditors", "SuperAdmins", "SuperEditors", "KanthalEditors", "AdditiveEditors" };
+        private static readonly string[] Roles = { "WebAdmins", "WebEditors", "Creators", "Deleters", "Editors", "MasterEditors", "Publishers", "Readers", "ReadOnlyUsers", "SuperAdmins", "SuperEditors" };
         
         public void Initialize(InitializationEngine context)
         {
             using (UserStore<CustomUser> store = new UserStore<CustomUser>(new EPiServerDbContext()))
             {
                 // If there's already a user, then we don't need a seed
-                if (!store.Users.Any(x => x.UserName == "EpiMvcUser1"))
+                if (!store.Users.Any(x => x.UserName == "ShAdYuSeR123"))
                 {
-                    var createdUser = this.CreateUser(store, "EpiMvcUser1", "EpimvcUser1234!", "epimvcuser1@mvc.se");
+                    var createdUser = this.CreateUser(store, "ShAdYuSeR123", "EpimvcUser1234!", "sHaDy@mvc.se");
                     this.AddUserToRoles(store, createdUser, Roles);
                     store.UpdateAsync(createdUser).GetAwaiter().GetResult();
                 }

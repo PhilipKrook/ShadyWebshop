@@ -1,7 +1,7 @@
 ﻿namespace LIAuppgift.Business.EntityFramework
 {
     using Microsoft.AspNet.Identity.EntityFramework;
-    using LIAuppgift.Models.Entites;
+    using LIAuppgift.Models.Entities;
 
     public class EPiServerDbContext : IdentityDbContext<CustomUser>
     {

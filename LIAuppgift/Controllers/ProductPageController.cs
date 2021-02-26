@@ -7,18 +7,21 @@
     using EPiServer.Core;
     using EPiServer.ServiceLocation;
     using EPiServer.Web.Mvc;
+    using LIAuppgift.Business.Repositories;
+    using LIAuppgift.Models.Entites;
     using LIAuppgift.Models.Pages;
     
     public class ProductPageController : PageController<ProductPage>
     {
         public ActionResult Index(ProductPage currentPage)
-            {            
+        {
+            // var user = this.User.Identity;
             return View("~/Views/ProductPage/Index.cshtml", currentPage);
-            }
+         }
 
         [HttpPost]
         public ActionResult Index(string productId)
-        {            
+        {
             var cartCookie = this.Request.Cookies.Get("cart");
             if (cartCookie == null || string.IsNullOrWhiteSpace(cartCookie.Value))
             {
@@ -33,7 +36,7 @@
             cartItem.ProductId = int.Parse(productId);
             cartItem.ProductName = productPage.Name;
             cartItem.Price = int.Parse(productPage.Price);
-            cartItem.UserId = cartCookie.Value;
+            cartItem.UserId = cartCookie.Value; // user.name
 
             var cartRepository = new CartRepository();
             cartRepository.Add(cartItem);
