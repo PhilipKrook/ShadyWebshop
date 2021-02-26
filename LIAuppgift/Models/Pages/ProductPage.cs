@@ -48,6 +48,5 @@
             GroupName = SystemTabNames.Content,
             Order = 500)]
         public virtual ContentReference ProductImage { get; set; }
-
     }
 }

@@ -1,10 +1,11 @@
 ﻿namespace WebFormsIdentity
 {
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.EntityFramework;
-    using Microsoft.Owin.Security;
     using System;
     using System.Web;
+    using LIAuppgift.Models.Entites;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using Microsoft.Owin.Security;    
 
     public partial class Login : System.Web.UI.Page
     {
@@ -27,9 +28,9 @@
 
         protected void SignIn(object sender, EventArgs e)
         {
-            var userStore = new UserStore<IdentityUser>();
-            var userManager = new UserManager<IdentityUser>(userStore);
-            var user = userManager.Find(UserName.Text, Password.Text);
+            var userStore = new UserStore<CustomUser>();
+            var userManager = new UserManager<CustomUser>(userStore);
+            var user = userManager.Find(Email.Text, Password.Text);
 
             if (user != null)
             {
@@ -41,7 +42,7 @@
             }
             else
             {
-                StatusText.Text = "Invalid username or password.";
+                StatusText.Text = "Invalid user name or password.";
                 LoginStatus.Visible = true;
             }
         }

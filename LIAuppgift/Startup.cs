@@ -1,21 +1,35 @@
 ﻿using Microsoft.Owin;
-using Owin;
-using Microsoft.AspNet.Identity;
-using Microsoft.Owin.Security.Cookies;
 
 [assembly: OwinStartup(typeof(LIAuppgift.Startup))]
 
 namespace LIAuppgift
 {
+    using System;
+    using Microsoft.Owin;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.Owin.Security.Cookies;
+    using EPiServer.Cms.UI.AspNetIdentity;
+    using LIAuppgift.Models.Entites;
+    using Microsoft.AspNet.Identity.Owin;
+    using Owin;
+
     public class Startup
     {
         public void Configuration(IAppBuilder app)
         {
-            // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=316888
+            app.AddCmsAspNetIdentity<CustomUser>();
+
+            // Use cookie authentication
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/Login")
+                LoginPath = new PathString("/Login.aspx"),
+                Provider = new CookieAuthenticationProvider
+                {
+                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager<CustomUser>, CustomUser>(
+                   validateInterval: TimeSpan.FromMinutes(30),
+                   regenerateIdentity: (manager, user) => manager.GenerateUserIdentityAsync(user))
+                }
             });
         }
     }
