@@ -3,24 +3,30 @@
     using Newtonsoft.Json;
     using RestSharp;
     using System;
-    using static LIAuppgift.Models.Other.CurrencyApi;
+    using LIAuppgift.Models.Pages;
+    using LIAuppgift.Models.ViewModels;
+    using LIAuppgift.Models.Other;
+    using LIAuppgift.Controllers;
+    using static LIAuppgift.Models.Other.CurrencyApi;    
 
     public class CurrencyClient
     {
-        public Root CurrencyApiClient()
+        public int GetConvertedFromUsd(string price)
         {
-            var client = new RestClient("https://blockchain.info/ticker");
+            // converts USD to BTC 
+            var client = new RestClient($"https://blockchain.info/tobtc?currency=USD&value={price}");
+
+            // gets all the Api data
+            // var client = new RestClient("https://blockchain.info/ticker"); 
+
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             request.AddHeader("Cookie", "__cfduid=d9d9370c643fdf99565def616464fc0e01614591784");
             IRestResponse response = client.Execute(request);
-            // Console.WriteLine(response.Content);
 
-            var BitCurrency = JsonConvert.DeserializeObject<Root>(response.Content);
-            // Console.WriteLine("EUR = " + Currency.EUR.last + " " + Currency.EUR.symbol);
-            // Console.WriteLine("USD = " + Currency.USD.last + " " + Currency.USD.symbol);
+            var bitCurrency = JsonConvert.DeserializeObject<int>(response.Content);
 
-            return BitCurrency;
+            return bitCurrency;
         }
     }
 }

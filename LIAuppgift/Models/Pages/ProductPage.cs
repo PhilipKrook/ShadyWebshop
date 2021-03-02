@@ -38,7 +38,7 @@
             Name = "Price",
             GroupName = SystemTabNames.Content,
             Order = 400)]
-        public virtual string Price { get; set; }
+        public virtual string ProductPrice { get; set; }
 
         [UIHint(UIHint.Image)]
         [CultureSpecific]

@@ -25,7 +25,7 @@
                 <img class="product-image" src="@Url.ContentUrl(Model.ProductImage)" />
             </div>
             <div class="product-price">
-                Price:  @Html.PropertyFor(m => Model.Price)
+                Price: (USD)  @Html.PropertyFor(m => Model.ProductPrice)
                 <form method="post" action="@Url.ContentUrl(Model.ContentLink)">
                     <input type="hidden" value="@Model.ContentLink.ID" name="productId" />
                     <button type="submit" Class="button-buy">Buy</button>

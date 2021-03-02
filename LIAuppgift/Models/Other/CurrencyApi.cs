@@ -24,7 +24,7 @@
             public string symbol { get; set; }
         }
 
-        public class Root
+        public class CurrencyRoot
         {
             public USD USD { get; set; }
             public EUR EUR { get; set; }
