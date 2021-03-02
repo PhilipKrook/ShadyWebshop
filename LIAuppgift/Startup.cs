@@ -5,7 +5,6 @@
 namespace LIAuppgift
 {
     using System;
-    using Microsoft.Owin;
     using Microsoft.AspNet.Identity;
     using Microsoft.Owin.Security.Cookies;
     using EPiServer.Cms.UI.AspNetIdentity;

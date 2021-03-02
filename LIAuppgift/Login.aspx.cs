@@ -6,7 +6,7 @@
     using LIAuppgift.Models.Entities;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
-    using Microsoft.Owin.Security;    
+    using Microsoft.Owin.Security;
 
     public partial class Login : System.Web.UI.Page
     {
