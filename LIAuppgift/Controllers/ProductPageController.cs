@@ -10,14 +10,22 @@
     using LIAuppgift.Business.Repositories;
     using LIAuppgift.Models.Entites;
     using LIAuppgift.Models.Pages;
+    using LIAuppgift.Models.ViewModels;
+    using LIAuppgift.Business.Api;   
     
     public class ProductPageController : PageController<ProductPage>
     {
         public ActionResult Index(ProductPage currentPage)
         {
-            // var user = this.User.Identity;
-            return View("~/Views/ProductPage/Index.cshtml", currentPage);
-         }
+            var currencyClient = new CurrencyClient();
+            var convertedPrice = currencyClient.GetConvertedFromUsd(currentPage.ProductPrice);
+
+            var viewModel = new ProductPageViewModel();
+            viewModel.CurrentPage = currentPage;
+            viewModel.ConvertedPrice = convertedPrice.ToString();
+
+            return View("~/Views/ProductPage/Index.cshtml", viewModel);
+        }
 
         [HttpPost]
         public ActionResult Index(string productId)
@@ -35,8 +43,8 @@
             var cartItem = new CartItemEntity();
             cartItem.ProductId = int.Parse(productId);
             cartItem.ProductName = productPage.Name;
-            cartItem.Price = int.Parse(productPage.Price);
-            cartItem.UserId = cartCookie.Value; // user.name
+            cartItem.ProductPrice = int.Parse(productPage.ProductPrice);
+            cartItem.UserId = cartCookie.Value; 
 
             var cartRepository = new CartRepository();
             cartRepository.Add(cartItem);
