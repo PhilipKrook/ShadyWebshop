@@ -1,8 +1,5 @@
-﻿@using EPiServer.Core
-@using EPiServer.Web.Mvc.Html
-@using LIAuppgift.Business.Api
+﻿@using EPiServer.Web.Mvc.Html
 
-@model LIAuppgift.Models.Pages.ProductPage
 @model LIAuppgift.Models.ViewModels.ProductPageViewModel
 
 <!DOCTYPE html>
@@ -26,7 +23,7 @@
                 <img class="product-image" src="@Url.ContentUrl(Model.CurrentPage.ProductImage)" />
             </div>
             <div class="product-price">
-                Price: (USD)  @Html.PropertyFor(m => Model.ConvertedPrice)
+                Price:  @Model.ConvertedPrice BTC
                 <form method="post" action="@Url.ContentUrl(Model.CurrentPage.ContentLink)">
                     <input type="hidden" value="@Model.CurrentPage.ContentLink.ID" name="productId" />
                     <button type="submit" Class="button-buy">Buy</button>

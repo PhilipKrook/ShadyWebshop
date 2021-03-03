@@ -282,7 +282,6 @@
       <DependentUpon>202102250926511_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Blocks\TestBlock.cs" />
-    <Compile Include="Models\Other\CurrencyApi.cs" />
     <Compile Include="Models\Entities\CustomUser.cs" />
     <Compile Include="Models\Entities\CartItemEntity.cs" />
     <Compile Include="Models\Media\ImageFile.cs" />
@@ -318,6 +317,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Models\Other\" />
     <Folder Include="Models\Properties\" />
   </ItemGroup>
   <ItemGroup>

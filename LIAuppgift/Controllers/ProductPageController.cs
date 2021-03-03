@@ -22,7 +22,7 @@
 
             var viewModel = new ProductPageViewModel();
             viewModel.CurrentPage = currentPage;
-           // viewModel.ConvertedPrice = convertedPrice;
+            viewModel.ConvertedPrice = convertedPrice.ToString();
 
             return View("~/Views/ProductPage/Index.cshtml", viewModel);
         }
