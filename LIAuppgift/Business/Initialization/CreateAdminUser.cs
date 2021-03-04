@@ -5,6 +5,7 @@
     using System.Linq;
     using EPiServer.Framework;
     using EPiServer.Framework.Initialization;
+    using LIAuppgift;
     using LIAuppgift.Business.EntityFramework;
     using LIAuppgift.Models.Entities;
     using Microsoft.AspNet.Identity;

@@ -249,24 +249,6 @@ ModelManifest.xml
 /src/Sandvik.Web.SMRT/App_Data/blobs
 
 # CONFIGURATIONS
-# Group
-/src/Sandvik.Web.Group/connectionStrings.config
-/src/Sandvik.Web.Group/episerver.find.config
-/src/Sandvik.Web.Group/episerverframework.config
-/src/Sandvik.Web.Group/License.config
-/src/Sandvik.Web.Group/log4net.config
-# SMT
-/src/Sandvik.Web.SMT/connectionStrings.config
-/src/Sandvik.Web.Smt/episerver.find.config
-/src/Sandvik.Web.Smt/episerverframework.config
-/src/Sandvik.Web.SMT/License.config
-/src/Sandvik.Web.Smt/log4net.config
-# SMRT
-/src/Sandvik.Web.SMRT/connectionStrings.config
-/src/Sandvik.Web.Smrt/episerver.find.config
-/src/Sandvik.Web.Smrt/episerverframework.config
-/src/Sandvik.Web.SMRT/License.config
-/src/Sandvik.Web.Smrt/log4net.config
 
 # personal nuget config
 nuget.config

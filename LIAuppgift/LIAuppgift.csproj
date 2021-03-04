@@ -261,6 +261,7 @@
     <Compile Include="Business\EntityFramework\EPiServerDBContext.cs" />
     <Compile Include="Business\Initialization\CreateAdminUser.cs" />
     <Compile Include="Business\Repositories\CartRepository.cs" />
+    <Compile Include="CMSAdmin.cs" />
     <Compile Include="Controllers\CartPageController.cs" />
     <Compile Include="Controllers\ProductListingPageController.cs" />
     <Compile Include="Controllers\ProductPageController.cs" />
