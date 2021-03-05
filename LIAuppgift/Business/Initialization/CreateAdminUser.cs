@@ -22,9 +22,9 @@
             using (UserStore<CustomUser> store = new UserStore<CustomUser>(new EPiServerDbContext()))
             {
                 // If there's already a user, then we don't need a seed
-                if (!store.Users.Any(x => x.UserName == "ShAdYuSeR123"))
+                if (!store.Users.Any(x => x.UserName == CMSAdmin.adminName))
                 {
-                    var createdUser = this.CreateUser(store, "ShAdYuSeR123", "EpimvcUser1234!", "sHaDy@mvc.se");
+                    var createdUser = this.CreateUser(store, CMSAdmin.adminName, CMSAdmin.adminPw, CMSAdmin.adminEmail);
                     this.AddUserToRoles(store, createdUser, Roles);
                     store.UpdateAsync(createdUser).GetAwaiter().GetResult();
                 }

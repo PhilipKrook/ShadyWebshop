@@ -244,11 +244,12 @@ ModelManifest.xml
 .fake/
 
 /App_Data/blobs
-/src/Sandvik.Web.Group/App_Data/blobs
-/src/Sandvik.Web.SMT/App_Data/blobs
-/src/Sandvik.Web.SMRT/App_Data/blobs
 
 # CONFIGURATIONS
 
 # personal nuget config
 nuget.config
+
+# CMS Credentials
+CMSAdmin.cs
+LIAuppgift/CMSAdmin.cs

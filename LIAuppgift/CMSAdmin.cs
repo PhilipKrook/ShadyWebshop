@@ -1,17 +1,9 @@
 ﻿namespace LIAuppgift
-{    
-    using System;
-    using LIAuppgift.Business.Initialization;
-
+{
     public class CMSAdmin
     {
-        public string CMSAdminCredentials()
-        {
-            string adminUser = "ShAdYuSeR123", 
-                   adminPw = "!223sHaDyPw", 
-                   adminEmail = "sHaDy@mvc.se";
-
-            return;
-        }        
-    }    
+        public static string adminName = "ShAdYuSeR123";
+        public static string adminPw = "EpimvcUser1234!";
+        public static string adminEmail = "sHaDy@mvc.se";
+    }
 }
