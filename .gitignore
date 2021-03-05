@@ -253,3 +253,4 @@ nuget.config
 # CMS Credentials
 CMSAdmin.cs
 LIAuppgift/CMSAdmin.cs
+/LIAuppgift/CMSAdmin.cs
