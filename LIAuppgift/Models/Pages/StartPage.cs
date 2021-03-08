@@ -2,6 +2,7 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations;
+    using EPiServer;
     using EPiServer.Core;
     using EPiServer.DataAbstraction;
     using EPiServer.DataAnnotations;
@@ -32,5 +33,21 @@
                     GroupName = SystemTabNames.Content,
                     Order = 300)]
         public virtual ContentArea ContentArea { get; set; }
+
+        [CultureSpecific]
+        [Display(
+                     Name = "Cart Page",
+                     Description = "The cart page",
+                     GroupName = "Reference",
+                     Order = 400)]
+        public virtual ContentReference CartPageReference { get; set; }
+
+        [CultureSpecific]
+        [Display(
+                     Name = "Login",
+                     Description = "Login to the site",
+                     GroupName = "Reference",
+                     Order = 500)]
+        public virtual Url LoginPageReference { get; set; }
     }
 }

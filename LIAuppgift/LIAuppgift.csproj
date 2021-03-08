@@ -260,6 +260,7 @@
     <Compile Include="Business\EntityFramework\CartContext.cs" />
     <Compile Include="Business\EntityFramework\EPiServerDBContext.cs" />
     <Compile Include="Business\Initialization\CreateAdminUser.cs" />
+    <Compile Include="Business\References\StartPageReferences.cs" />
     <Compile Include="Business\Repositories\CartRepository.cs" />
     <Compile Include="CMSAdmin.cs" />
     <Compile Include="Controllers\CartPageController.cs" />

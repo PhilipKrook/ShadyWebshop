@@ -3,28 +3,15 @@
 
 @model LIAuppgift.Models.ViewModels.ProductListingPageViewModel
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/Static/css/Style.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
-</head>
-<body>
-    <h1>Listing all products</h1>
-    <div class="products-all">
-        @foreach (var product in Model.Products)
-        {
-            <div class="products-single">
-                <div @Html.EditAttributes(x => product.ProductImage)>
-                    <img class="product-listing-image" src="@Url.ContentUrl(product.ProductImage)" />
-                </div>
-                <h4><a href="@Url.ContentUrl(product.ContentLink)">@product.Heading</a></h4>
+<h1>Listing all products</h1>
+<div class="products-all">
+    @foreach (var product in Model.Products)
+    {
+        <div class="products-single">
+            <div @Html.EditAttributes(x => product.ProductImage)>
+                <img class="product-listing-image" src="@Url.ContentUrl(product.ProductImage)" />
             </div>
-        }
-    </div>
-</body>
-</html>
+            <h4><a href="@Url.ContentUrl(product.ContentLink)">@product.Heading</a></h4>
+        </div>
+    }
+</div>
