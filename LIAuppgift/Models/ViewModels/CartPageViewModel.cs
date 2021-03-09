@@ -6,6 +6,11 @@
 
     public class CartPageViewModel
     {
+        public CartPageViewModel()
+        {
+            this.CartItems = new List<CartItemEntity>();
+        }
+
         public CartPage CurrentPage { get; set; }
 
         public IEnumerable<ProductPage> Products { get; set; }

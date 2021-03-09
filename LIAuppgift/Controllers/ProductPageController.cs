@@ -40,6 +40,7 @@
 
             var contentRepository = ServiceLocator.Current.GetInstance<IContentRepository>();
             var productPage = contentRepository.Get<ProductPage>(new ContentReference(int.Parse(productId)));
+
             var cartItem = new CartItemEntity();
             cartItem.ProductId = int.Parse(productId);
             cartItem.ProductName = productPage.Name;
@@ -49,7 +50,14 @@
             var cartRepository = new CartRepository();
             cartRepository.Add(cartItem);
 
-            return View("~/Views/ProductPage/Index.cshtml", productPage);
+            var currencyClient = new CurrencyClient();
+            var convertedPrice = currencyClient.GetConvertedFromUsd(productPage.ProductPrice);
+
+            var viewModel = new ProductPageViewModel();
+            viewModel.CurrentPage = productPage;
+            viewModel.ConvertedPrice = convertedPrice.ToString("C3");
+
+            return View("~/Views/ProductPage/Index.cshtml", viewModel);
         }
     }
 }
