@@ -13,7 +13,9 @@
 
         public int Quantity { get; set; }
 
-        public int SumPrice { get; set; }
+        public double SumPrice { get; set; }
+
+        public double ConvertedPrice { get; set; }
 
         public string ProductName { get; set; }
 
