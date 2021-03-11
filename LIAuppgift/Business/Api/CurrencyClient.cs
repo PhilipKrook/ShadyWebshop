@@ -17,6 +17,7 @@
 
             var bitCurrency = response.Content;
 
+            // If the API fails, sets the convertedPrice to 404
             if (Double.TryParse(bitCurrency, out double convertedPrice))
             {
                 return convertedPrice;

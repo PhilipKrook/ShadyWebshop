@@ -448,6 +448,7 @@
     <Content Include="Static\gfx\anonymous.png" />
     <Content Include="Static\gfx\anonymous2.png" />
     <Content Include="Static\gfx\basket.png" />
+    <Content Include="Static\gfx\contact.png" />
     <Content Include="Static\gfx\image404.png" />
     <Content Include="Static\gfx\laptop1.jpg" />
     <Content Include="Static\gfx\old-cellphone.jpg" />

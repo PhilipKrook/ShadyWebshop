@@ -12,7 +12,9 @@
     using Microsoft.AspNet.Identity.EntityFramework;
 
     [InitializableModule]
-    [ModuleDependency(typeof(EPiServer.Web.InitializationModule), typeof(DatabaseMigrationsInitialization))] // , typeof(CustomSmrtDatabaseMigrationInitialization))]
+    [ModuleDependency(typeof(EPiServer.Web.InitializationModule), typeof(DatabaseMigrationsInitialization))]
+
+    // For creating and setting an admin user and credentials for CMS login
     public class CreateAdminUser : IInitializableModule
     {
         private static readonly string[] Roles = { "WebAdmins", "WebEditors", "Creators", "Deleters", "Editors", "MasterEditors", "Publishers", "Readers", "ReadOnlyUsers", "SuperAdmins", "SuperEditors" };
@@ -42,12 +44,7 @@
                 LockoutEnabled = true,
                 IsApproved = true,
                 UserName = username,
-                PasswordHash = passwordHash,
-                FirstName = "test firstname",
-                LastName = "lastname test",
-                StreetAddress = "test streetaddress",
-                City = "test city",
-                PostCode = "postcode test",
+                PasswordHash = passwordHash,                
                 CreationDate = DateTime.Now,                
                 SecurityStamp = Guid.NewGuid().ToString(),                
             };

@@ -2,13 +2,10 @@
 using EPiServer.Core;
 using EPiServer.ServiceLocation;
 using LIAuppgift.Models.Pages;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace LIAuppgift.Business.References
 {
+    // Using these references we are able to "link" between pages with content
     public class StartPageReferences
     {
         public static ContentReference CartReference()

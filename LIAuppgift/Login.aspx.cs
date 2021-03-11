@@ -8,8 +8,10 @@
     using Microsoft.AspNet.Identity.EntityFramework;
     using Microsoft.Owin.Security;
 
+    // User login
     public partial class Login : System.Web.UI.Page
     {
+        // Check if user is authenticated
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -27,6 +29,7 @@
             }
         }
 
+        // Sign in method form
         protected void SignIn(object sender, EventArgs e)
         {
             var userStore = new UserStore<CustomUser>(new EPiServerDbContext());
@@ -48,6 +51,7 @@
             }
         }
 
+        // Sign out
         protected void SignOut(object sender, EventArgs e)
         {
             var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;

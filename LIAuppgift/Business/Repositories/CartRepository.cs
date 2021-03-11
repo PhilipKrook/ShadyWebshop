@@ -5,8 +5,10 @@
     using System.Collections.Generic;
     using System.Linq;
 
+    // A repository "talks to the db" CRUD
     public class CartRepository
     {
+        /// Adds an entity
         public void Add(CartItemEntity item)
         {
             using (CartContext ctx = new CartContext())
@@ -16,6 +18,7 @@
             }
         }
 
+        // Gets a single identity
         public CartItemEntity Get(int id)
         {
             using (CartContext ctx = new CartContext())
@@ -25,6 +28,7 @@
             }
         }
 
+        // Gets entities with a key (id) and lists it's properties
         public IEnumerable<CartItemEntity> Get(string userId)
         {
             using (CartContext ctx = new CartContext())
