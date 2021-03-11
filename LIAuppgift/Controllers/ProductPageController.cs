@@ -15,6 +15,8 @@
     
     public class ProductPageController : PageController<ProductPage>
     {
+
+        // Method for getting the converted price and sending it to the product page (viewmodel)
         public ActionResult Index(ProductPage currentPage)
         {
             var currencyClient = new CurrencyClient();
@@ -27,6 +29,8 @@
             return View("~/Views/ProductPage/Index.cshtml", viewModel);
         }
 
+
+        // Post method to add the cart to a cookie based on a guid
         [HttpPost]
         public ActionResult Index(string productId)
         {
@@ -41,18 +45,22 @@
             var contentRepository = ServiceLocator.Current.GetInstance<IContentRepository>();
             var productPage = contentRepository.Get<ProductPage>(new ContentReference(int.Parse(productId)));
 
+            // Creates a new Entity for the cart
             var cartItem = new CartItemEntity();
             cartItem.ProductId = int.Parse(productId);
             cartItem.ProductName = productPage.Name;
             cartItem.ProductPrice = int.Parse(productPage.ProductPrice);
-            cartItem.UserId = cartCookie.Value; 
+            cartItem.UserId = cartCookie.Value;
+
+            // Gets the converted price and adds it to the cart Entity
+            var currencyClient = new CurrencyClient();
+            var convertedPrice = currencyClient.GetConvertedFromUsd(productPage.ProductPrice);
+            cartItem.ConvertedPrice = convertedPrice;            
 
             var cartRepository = new CartRepository();
             cartRepository.Add(cartItem);
 
-            var currencyClient = new CurrencyClient();
-            var convertedPrice = currencyClient.GetConvertedFromUsd(productPage.ProductPrice);
-
+            // Adds the converted price to the viewmodel
             var viewModel = new ProductPageViewModel();
             viewModel.CurrentPage = productPage;
             viewModel.ConvertedPrice = convertedPrice.ToString("C3");

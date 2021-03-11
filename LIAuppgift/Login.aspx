@@ -65,7 +65,13 @@
     <div class="container body-content">
         <hr />
         <footer>
-            <p>&copy; <%= DateTime.Now.Year %> - Shady Webshop by Philip Krook</p>
+            <div>
+                <p>&copy; <%= DateTime.Now.Year %> - Shady Webshop by Philip Krook</p>
+            </div>
+            <div>
+                <a class="footer-contact" href="./en/contact-us">Contact us</a>
+                <a class="footer-about" href="./en/about-us">About us</a>
+            </div>
         </footer>
     </div>
 

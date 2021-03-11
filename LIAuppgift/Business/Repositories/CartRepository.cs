@@ -37,8 +37,8 @@
                         ProductId = group.Key,
                         ProductName = group.First().ProductName,
                         Quantity = group.Count(),
-                        ProductPrice = group.First().ProductPrice,
-                        SumPrice = group.First().ProductPrice * group.Count()
+                        ConvertedPrice = group.First().ConvertedPrice,
+                        SumPrice = group.First().ConvertedPrice * group.Count()
                     }).ToList();
 
                 return cartItems;
