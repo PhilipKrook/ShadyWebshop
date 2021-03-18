@@ -28,11 +28,11 @@
                 <img src="~/Static/gfx/anonymous.png" style="height: 40px; margin-top: 10px; margin-bottom: 10px;" alt="logo">
                 <span class="ml-4 text-xl">Shady Webshop</span>
             </a>
-            <nav class="flex lg:w-2/5 flex-wrap items-end text-base md:ml-auto">
-                <div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
+            <nav class="flex lg:w-2/5 flex-wrap justify-end items-end text-base md:ml-auto">
+                <div class="mr-5 inline-flex lg:justify-end">
                     <a href="@Url.ContentUrl(StartPageReferences.CartReference())"><img src="~/Static/gfx/basket.png" style="height: 40px; margin-top: 10px; margin-bottom: 10px;" alt="basket" /></a>
                 </div>
-                <div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
+                <div class="mr-5 inline-flex lg:justify-end">
                     <a href="@Url.ContentUrl(StartPageReferences.LoginReference())"><img src="~/Static/gfx/account2.png" style="height: 35px; margin-top: 10px; margin-bottom: 10px;" alt="login" /></a>
                 </div>
             </nav>
@@ -46,7 +46,7 @@
     </div>
 
     @* Global Footer *@
-    <footer class="mt-24 bg-gray-800 sm:mt-12">
+    <footer class="sticky bottom-0 bg-gray-800">
         <div class="mx-auto max-w-md py-12 px-4 overflow-hidden sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
             <nav class="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
                 <div class="px-5 py-2">
