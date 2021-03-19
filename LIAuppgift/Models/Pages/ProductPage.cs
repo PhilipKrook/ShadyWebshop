@@ -35,7 +35,7 @@
 
         [CultureSpecific]
         [Display(
-            Name = "Price",
+            Name = "Price (USD)",
             GroupName = SystemTabNames.Content,
             Order = 400)]
         public virtual string ProductPrice { get; set; }
