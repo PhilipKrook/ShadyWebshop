@@ -3,15 +3,30 @@
 
 @model LIAuppgift.Models.ViewModels.ProductListingPageViewModel
 
-<h1>Listing all products</h1>
-<div class="products-all">
-    @foreach (var product in Model.Products)
-    {
-        <div class="products-single">
-            <div @Html.EditAttributes(x => product.ProductImage)>
-                <img class="product-listing-image" src="@Url.ContentUrl(product.ProductImage)" />
+
+<div class="bg-gray-900">
+    <div class="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
+        <div class="space-y-12">
+            <div class="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
+                <h2 class="text-3xl font-extrabold text-white tracking-tight sm:text-4xl">Behold, the products</h2>
+                <p class="text-xl text-gray-300">Listing the current stock of products. Images, text, price etc etc may and probably aint accurate </p>
             </div>
-            <h4><a href="@Url.ContentUrl(product.ContentLink)">@product.Heading</a></h4>
+            <ul class="space-y-4 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:grid-cols-3 lg:gap-8">
+
+                @foreach (var product in Model.Products)
+                {
+                    @Html.EditAttributes(x => product.ProductImage)
+                    <li class="py-10 px-6 bg-gray-800 text-center rounded-lg xl:px-10 xl:text-left">
+                        <div class="space-y-6 xl:space-y-10">
+                            <img class="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56" src="@Url.ContentUrl(product.ProductImage)" alt="">
+                            <div class="space-y-2 xl:flex xl:items-center xl:justify-center">
+                                <h3 class="text-indigo-400 font-medium text-lg leading-6 space-y-1"><a href="@Url.ContentUrl(product.ContentLink)">@product.Heading</a></h3>
+                            </div>
+                        </div>
+                    </li>
+                }
+
+            </ul>
         </div>
-    }
+    </div>
 </div>

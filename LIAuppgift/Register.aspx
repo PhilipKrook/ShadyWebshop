@@ -8,22 +8,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>- Shady Webshop</title>
     <link rel="shortcut icon" type="image/ico" href="~/Static/gfx/anonymous2.png" />
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/Static/css/Style.css" rel="stylesheet" type="text/css" />
+    <link href="~/Static/css/styles.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
 
     <%--Header--%>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="./">Shady Webshop</a>
-                <div class="navbar-icon">
-                    <a class="navbar-icon-basket" href="./CartPage">
+    <div class="">
+        <div class="">
+            <div class="">
+                <a class="" href="./">Shady Webshop</a>
+                <div class="">
+                    <a class="" href="./CartPage">
                         <img src="./Static/gfx/basket.png" class="basketico" /></a>
-                    <a class="navbar-icon-account" href="/Login.aspx">
+                    <a class="" href="/Login.aspx">
                         <img src="./Static/gfx/account.png" class="accountico" /></a>
                 </div>
             </div>
@@ -97,15 +95,15 @@
     </form>
 
     <%--Footer--%>
-    <div class="container body-content">
+    <div class="">
         <hr />
         <footer>
             <div>
                 <p>&copy; <%= DateTime.Now.Year %> - Shady Webshop by Philip Krook</p>
             </div>
             <div>
-                <a class="footer-contact" href="./en/contact-us">Contact us</a>
-                <a class="footer-about" href="./en/about-us">About us</a>
+                <a class="" href="./en/contact-us">Contact us</a>
+                <a class="" href="./en/about-us">About us</a>
             </div>
         </footer>
     </div>

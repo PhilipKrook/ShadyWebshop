@@ -1,33 +1,58 @@
 ﻿@model LIAuppgift.Models.ViewModels.CartPageViewModel
 
-<h1 class="h1-cart">Shopping Cart</h1>
-<table id="products">
-    <tr>
-        <th>Product</th>
-        <th>Quantity</th>
-        <th>Price (single)</th>
-        <th>Price (sum)</th>
-        <th class="remove-heading">
-            <div>Remove item</div>
-            <div><button type="submit" Class="button-remove">X</button></div>
-        </th>
-    </tr>
-    @foreach (var cartItem in Model.CartItems)
-    {
-        <tr>
-            <td>@cartItem.ProductName</td>
-            <td>
-                <form>
-                    <input type="number" id="" name="" value="@cartItem.Quantity">
-                </form>
-            </td>
-            <td>@cartItem.ConvertedPrice</td>
-            <td>@cartItem.SumPrice</td>
-            <td>
-                <form method="post" action="">
-                    <input type="checkbox" value="" name="" />
-                </form>
-            </td>
-        </tr>
-    }
-</table>
+<div class="flex flex-col max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-8 py-3 text-left text-s font-medium text-gray-800 uppercase tracking-wider">
+                                Product
+                            </th>
+                            <th scope="col" class="px-8 py-3 text-left text-s font-medium text-gray-800 uppercase tracking-wider">
+                                Quantity
+                            </th>
+                            <th scope="col" class="px-8 py-3 text-left text-s font-medium text-gray-800 uppercase tracking-wider">
+                                Price (single)
+                            </th>
+                            <th scope="col" class="px-8 py-3 text-left text-s font-medium text-gray-800 uppercase tracking-wider">
+                                Price (sum)
+                            </th>
+                            <th scope="col" class="px-8 py-3 text-left text-s font-medium text-gray-800 uppercase tracking-wider">
+                                <div>Remove item</div>
+                                <div><button type="submit" Class="button-remove">X</button></div>
+                            </th>                            
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var cartItem in Model.CartItems)
+                        {
+                            <tr class="bg-gray-50 hover:bg-white">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"> 
+                                    @cartItem.ProductName 
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> 
+                                    @cartItem.Quantity 
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    @cartItem.ConvertedPrice
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    @cartItem.SumPrice
+                                </td>
+                                <td  class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    <form method="post" action="">
+                                        <input type="checkbox" value="" name="" />
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>                    
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
