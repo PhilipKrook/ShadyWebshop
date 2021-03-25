@@ -12,5 +12,11 @@
         {
             return View("~/Views/StartPage/Index.cshtml", currentPage);
         }
+
+        [Authorize]
+        public ActionResult Login(StartPage currentPage)
+        {
+            return Redirect("/");
+        }
     }
 }
