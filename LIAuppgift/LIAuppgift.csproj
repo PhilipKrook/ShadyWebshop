@@ -300,7 +300,7 @@
     <Compile Include="Business\Repositories\CartRepository.cs" />
     <Compile Include="CMSAdmin.cs" />
     <Compile Include="Controllers\CartPageController.cs" />
-    <Compile Include="Controllers\GeneralPageController.cs" />
+    <Compile Include="Controllers\ContactPageController.cs" />
     <Compile Include="Controllers\ProductListingPageController.cs" />
     <Compile Include="Controllers\ProductPageController.cs" />
     <Compile Include="Controllers\StartPageController.cs" />
@@ -317,7 +317,7 @@
     <Compile Include="Models\Media\ImageFile.cs" />
     <Compile Include="Models\Media\GenericMedia.cs" />
     <Compile Include="Models\Pages\CartPage.cs" />
-    <Compile Include="Models\Pages\GeneralPage.cs" />
+    <Compile Include="Models\Pages\ContactPage.cs" />
     <Compile Include="Models\Pages\ProductListingPage.cs" />
     <Compile Include="Models\Pages\ProductPage.cs" />
     <Compile Include="Models\Pages\StartPage.cs" />
@@ -479,7 +479,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\GeneralPage\Index.cshtml" />
+    <Content Include="Views\ContactPage\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
