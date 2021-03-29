@@ -8,12 +8,23 @@
     // A repository "talks to the db" CRUD
     public class CartRepository
     {
-        /// Adds an entity
+        // Adds an entity
         public void Add(CartItemEntity item)
         {
             using (CartContext ctx = new CartContext())
             {
                 ctx.CartItems.Add(item);
+                ctx.SaveChanges();
+            }
+        }
+
+        // Removes one item type from the cart
+        public void Remove(int productId, string userId)
+        {
+            using (CartContext ctx = new CartContext())
+            {
+                var cartItems = ctx.CartItems.Where(x => x.ProductId == productId && x.UserId == userId);
+                ctx.CartItems.RemoveRange(cartItems);
                 ctx.SaveChanges();
             }
         }

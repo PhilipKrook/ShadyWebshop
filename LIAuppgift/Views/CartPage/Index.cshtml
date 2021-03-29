@@ -5,7 +5,7 @@
         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                 <table class="min-w-full divide-y divide-gray-200">
-                    <thead class="bg-gray-50">
+                    <thead class="bg-gray-100">
                         <tr>
                             <th scope="col" class="px-8 py-3 text-left text-s font-medium text-gray-800 uppercase tracking-wider">
                                 Product
@@ -20,8 +20,7 @@
                                 Price (sum)
                             </th>
                             <th scope="col" class="px-8 py-3 text-left text-s font-medium text-gray-800 uppercase tracking-wider">
-                                <div>Remove item</div>
-                                <div><button type="submit" Class="button-remove">X</button></div>
+                                <div>Remove item</div>                                
                             </th>                            
                         </tr>
                     </thead>
@@ -31,7 +30,7 @@
                         {
                             <tr class="bg-gray-50 hover:bg-white">
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"> 
-                                    @cartItem.ProductName 
+                                    @cartItem.ProductName
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> 
                                     @cartItem.Quantity 
@@ -43,8 +42,9 @@
                                     @cartItem.SumPrice
                                 </td>
                                 <td  class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    <form method="post" action="">
-                                        <input type="checkbox" value="" name="" />
+                                    <form method="post" action="@Url.ContentUrl(Model.CurrentPage.ContentLink)Remove">
+                                        <input type="hidden" value="@cartItem.ProductId" name="ProductId" />
+                                        <button type="submit" Class="">Remove</button>
                                     </form>
                                 </td>
                             </tr>
