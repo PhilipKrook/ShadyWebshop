@@ -1,8 +1,6 @@
-﻿@using EPiServer.Core
-@using EPiServer.Web.Mvc.Html
+﻿@using EPiServer.Web.Mvc.Html
 
 @model LIAuppgift.Models.ViewModels.ProductListingPageViewModel
-
 
 <div class="bg-gray-900">
     <div class="mx-auto py-12 px-4 max-w-7xl sm:px-6 lg:px-8 lg:py-24">
@@ -17,9 +15,9 @@
                 {
                     @Html.EditAttributes(x => product.ProductImage)
                     <li class="py-10 px-6 bg-gray-800 text-center rounded-lg xl:px-10 xl:text-left">
-                        <div class="space-y-6 xl:space-y-10">
-                            <img class="mx-auto h-40 w-40 rounded-full xl:w-56 xl:h-56" src="@Url.ContentUrl(product.ProductImage)" alt="">
-                            <div class="space-y-2 xl:flex xl:items-center xl:justify-center">
+                        <div class="space-y-6 xl:space-y-10 h-full xl:flex xl:flex-col xl:justify-between">
+                                <img class="mx-auto rounded-lg w-max" src="@Url.ContentUrl(product.ProductImage)">
+                            <div class="space-y-2 xl:flex xl:justify-center">
                                 <h3 class="text-indigo-400 font-medium text-lg leading-6 space-y-1"><a href="@Url.ContentUrl(product.ContentLink)">@product.Heading</a></h3>
                             </div>
                         </div>

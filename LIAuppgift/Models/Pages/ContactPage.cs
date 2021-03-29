@@ -5,8 +5,8 @@
     using EPiServer.DataAnnotations;
     using System.ComponentModel.DataAnnotations;
 
-    [ContentType(DisplayName = "General Page", GUID = "05bef1de-209c-48af-bdf6-c6d37f1ae9d9", Description = "")]
-    public class GeneralPage : PageData
+    [ContentType(DisplayName = "Contact Page", GUID = "05bef1de-209c-48af-bdf6-c6d37f1ae9d9", Description = "Contact us page")]
+    public class ContactPage : PageData
     {
         [CultureSpecific]
         [Display(

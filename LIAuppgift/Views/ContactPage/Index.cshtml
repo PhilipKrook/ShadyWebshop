@@ -1,0 +1,46 @@
+﻿@using EPiServer.Web.Mvc.Html
+
+@model LIAuppgift.Models.Pages.ContactPage
+
+<div class="relative bg-gray-50 pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
+    
+    <div class="relative max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
+                @Html.PropertyFor(m => m.Heading)
+            </h2>
+        </div>
+        <div class="flex flex-col rounded-lg shadow-lg overflow-hidden">
+            <div class="flex-shrink-0">
+                <img class="h-48 w-full object-cover" src="https://i1.wp.com/wallur.com/wp-content/uploads/2016/12/hacker-background-5.jpg?fit=1920%2C1080" alt="">
+            </div>
+            <div class="flex-1 bg-white p-6 flex flex-col justify-between">
+                <div class="flex-1">
+                    <p class="text-xl font-semibold text-gray-900">
+                        If you can find us, feel free to contact us
+                    </p>
+                </div>
+                <div class="mt-6 flex items-center">
+                    <div class="flex-shrink-0">
+                        <a href="#">
+                            <span class="sr-only">Shady Admin</span>
+                            <img class="h-10 w-10 rounded-full" src="~/Static/gfx/anonymous2.png">
+                        </a>
+                    </div>
+                    <div class="ml-3">
+                        <p class="text-sm font-medium text-gray-900">
+                            <a href="#" class="hover:underline">
+                                Shady Admin
+                            </a>
+                        </p>
+                        <div class="flex space-x-1 text-sm text-gray-500">
+                            <time datetime="2020-03-10">
+                                Mar 10, 2021
+                            </time>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
