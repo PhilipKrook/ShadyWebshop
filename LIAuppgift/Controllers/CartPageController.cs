@@ -53,8 +53,13 @@
             var cartRepository = new CartRepository();
             var cartCookie = this.Request.Cookies.Get("cart");
             cartRepository.Update(productId, quantity, cartCookie.Value);
+            
+            var cartItems = cartRepository.Get(cartCookie.Value);
+            var cartViewModel = new CartPageViewModel();
+            cartViewModel.CurrentPage = currentPage;
+            cartViewModel.CartItems = cartItems;
 
-            return Redirect(this.urlResolver.GetUrl(currentPage.ContentLink));
+            return View("~/Views/CartPage/Index.cshtml", cartViewModel);
         }
     }   
 }

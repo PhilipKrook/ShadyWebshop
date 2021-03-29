@@ -32,10 +32,14 @@
         // Changes the quantity of a product in the cart
         public void Update(int productId, int quantity, string userId)
         {
-            using (CartContext ctx = new CartContext())
+            using (var ctx = new CartContext())
             {
-                var cartItemToUpdate = ctx.CartItems.Where(x => x.ProductId == productId && x.UserId == userId).FirstOrDefault();               
-                ctx.CartItems.Find(cartItemToUpdate).Quantity = quantity;
+                var itemToRemove = ctx.CartItems.Where(i => i.ProductId == productId && i.UserId == userId).FirstOrDefault();
+                var itemToAdd = itemToRemove;
+                itemToAdd.Quantity = quantity;
+
+                ctx.CartItems.Remove(itemToRemove);
+                ctx.CartItems.Add(itemToAdd);
                 ctx.SaveChanges();
             }
         }
