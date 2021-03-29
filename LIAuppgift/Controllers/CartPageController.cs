@@ -16,6 +16,7 @@
             this.urlResolver = ServiceLocator.Current.GetInstance<IUrlResolver>();
         }
 
+        // sets up a new cart
         public ActionResult Index(CartPage currentPage)
         {
             var cartViewModel = new CartPageViewModel();
@@ -32,14 +33,26 @@
             cartViewModel.CartItems = cartItems;
 
             return View("~/Views/CartPage/Index.cshtml", cartViewModel);
-        }
+        }        
 
+        // remove product from cart
         [HttpPost]
         public ActionResult Remove(CartPage currentPage, int productId)
         {
             var cartRepository = new CartRepository();
             var cartCookie = this.Request.Cookies.Get("cart");
             cartRepository.Remove(productId, cartCookie.Value);
+
+            return Redirect(this.urlResolver.GetUrl(currentPage.ContentLink));
+        }
+
+        // update product quantity in cart
+        [HttpPost]
+        public ActionResult Update(CartPage currentPage, int productId, int quantity)
+        {
+            var cartRepository = new CartRepository();
+            var cartCookie = this.Request.Cookies.Get("cart");
+            cartRepository.Update(productId, quantity, cartCookie.Value);
 
             return Redirect(this.urlResolver.GetUrl(currentPage.ContentLink));
         }

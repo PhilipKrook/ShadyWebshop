@@ -18,13 +18,24 @@
             }
         }
 
-        // Removes one item type from the cart
+        // Removes one product type from the cart
         public void Remove(int productId, string userId)
         {
             using (CartContext ctx = new CartContext())
             {
                 var cartItems = ctx.CartItems.Where(x => x.ProductId == productId && x.UserId == userId);
                 ctx.CartItems.RemoveRange(cartItems);
+                ctx.SaveChanges();
+            }
+        }
+
+        // Changes the quantity of a product in the cart
+        public void Update(int productId, int quantity, string userId)
+        {
+            using (CartContext ctx = new CartContext())
+            {
+                var cartItemToUpdate = ctx.CartItems.Where(x => x.ProductId == productId && x.UserId == userId).FirstOrDefault();               
+                ctx.CartItems.Find(cartItemToUpdate).Quantity = quantity;
                 ctx.SaveChanges();
             }
         }

@@ -32,8 +32,11 @@
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"> 
                                     @cartItem.ProductName
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> 
-                                    @cartItem.Quantity 
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                    <form method="post" action="@Url.ContentUrl(Model.CurrentPage.ContentLink)Update">
+                                        <input type="text" value="@cartItem.Quantity" name="Quantity" />
+                                        <button type="submit" Class="">Update</button>
+                                    </form>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                     @cartItem.ConvertedPrice
