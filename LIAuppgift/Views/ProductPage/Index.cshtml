@@ -2,26 +2,25 @@
 
 @model LIAuppgift.Models.ViewModels.ProductPageViewModel
 
-<div class="">
-    <div class="">
-        <h1>@Html.PropertyFor(m => Model.CurrentPage.Heading)</h1>
-    </div>
-    <div class="">
-        <div @Html.EditAttributes(x => Model.CurrentPage.ProductImage)>
-            <img class="e" src="@Url.ContentUrl(Model.CurrentPage.ProductImage)" />
+<div class="lg:col-span-2">
+    <div class="space-y-4 sm:grid sm:grid-cols-3 sm:items-start sm:gap-6 sm:space-y-0">
+        <div @Html.EditAttributes(x => Model.CurrentPage.ProductImage) class="aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-4">
+            <img class="object-cover shadow-lg rounded-lg" src="@Url.ContentUrl(Model.CurrentPage.ProductImage)" alt="">
         </div>
-        <div class="">
-            Price:  @Model.ConvertedPrice BTC
-            <form method="post" action="@Url.ContentUrl(Model.CurrentPage.ContentLink)">
-                <input type="hidden" value="@Model.CurrentPage.ContentLink.ID" name="productId" />
-                <button type="submit" Class="">Buy</button>
-            </form>
+        <div class="sm:col-span-2">
+            <div class="space-y-4">
+                <div class="leading-6 space-y-1">
+                    <p class="text-indigo-600 text-2xl">@Html.PropertyFor(m => Model.CurrentPage.Heading)</p>
+                    <h3>Price:  @Model.ConvertedPrice BTC</h3>
+                </div>
+                <div class="text-lg">
+                    <p class="text-gray-500">@Html.PropertyFor(m => Model.CurrentPage.MainBody)</p>
+                </div>
+                <form method="post" action="@Url.ContentUrl(Model.CurrentPage.ContentLink)">
+                    <input type="hidden" value="@Model.CurrentPage.ContentLink.ID" name="productId" />
+                    <button type="submit" Class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">Buy</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
-<div class="">
-    <strong>Product description</strong>
-    <p>@Html.PropertyFor(m => Model.CurrentPage.MainBody)</p>
-</div>
-
-
