@@ -16,7 +16,7 @@
             this.urlResolver = ServiceLocator.Current.GetInstance<IUrlResolver>();
         }
 
-        // sets up a new cart
+        // Sets up a new cart
         public ActionResult Index(CartPage currentPage)
         {
             var cartViewModel = new CartPageViewModel();
@@ -35,7 +35,7 @@
             return View("~/Views/CartPage/Index.cshtml", cartViewModel);
         }        
 
-        // remove product from cart
+        // Remove product from cart
         [HttpPost]
         public ActionResult Remove(CartPage currentPage, int productId)
         {
@@ -46,7 +46,7 @@
             return Redirect(this.urlResolver.GetUrl(currentPage.ContentLink));
         }
 
-        // update product quantity in cart
+        // Update product quantity in cart
         [HttpPost]
         public ActionResult Update(CartPage currentPage, int productId, int quantity)
         {

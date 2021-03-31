@@ -9,11 +9,19 @@
     public class CartRepository
     {
         // Adds an entity
-        public void Add(CartItemEntity item)
+        public void Save(CartItemEntity itemValidate, bool addOne)
         {
             using (CartContext ctx = new CartContext())
             {
-                ctx.CartItems.Add(item);
+                var cartItem = ctx.CartItems.SingleOrDefault(x => x.ProductId == itemValidate.ProductId && x.UserId == itemValidate.UserId);
+                if (cartItem == null)
+                {
+                    ctx.CartItems.Add(itemValidate);
+                }
+                else
+                {
+                    cartItem.Quantity = addOne ? cartItem.Quantity+1: itemValidate.Quantity;
+                }
                 ctx.SaveChanges();
             }
         }
@@ -34,14 +42,10 @@
         {
             using (var ctx = new CartContext())
             {
-                var itemToRemove = ctx.CartItems.Where(i => i.ProductId == productId && i.UserId == userId).FirstOrDefault();
-                var itemToAdd = itemToRemove;
-                itemToAdd.Quantity = quantity;
-
-                ctx.CartItems.Remove(itemToRemove);
-                ctx.CartItems.Add(itemToAdd);
+                var item = ctx.CartItems.SingleOrDefault(i => i.ProductId == productId && i.UserId == userId);
+                item.Quantity = quantity;
                 ctx.SaveChanges();
-            }
+            } 
         }
 
         // Gets a single identity
@@ -60,16 +64,7 @@
             using (CartContext ctx = new CartContext())
             {
                 var cartItems = ctx.CartItems
-                    .Where(x => x.UserId == userId).ToList()
-                    .GroupBy(item => item.ProductId)
-                    .Select(group => new CartItemEntity
-                    {
-                        ProductId = group.Key,
-                        ProductName = group.First().ProductName,
-                        Quantity = group.Count(),
-                        ConvertedPrice = group.First().ConvertedPrice,
-                        SumPrice = group.First().ConvertedPrice * group.Count()
-                    }).ToList();
+                    .Where(x => x.UserId == userId).ToList();                
 
                 return cartItems;
             }
