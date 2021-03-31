@@ -2,25 +2,25 @@
 
 @model LIAuppgift.Models.ViewModels.ProductPageViewModel
 
-<div class="relative bg-white pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
-    <div class="relative max-w-7xl mx-auto flex rounded-lg shadow-lg overflow-hidden">
-        <div class="aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-4" @Html.EditAttributes(x => Model.CurrentPage.ProductImage)>
-            <img class="object-cover shadow-lg rounded-lg" src="@Url.ContentUrl(Model.CurrentPage.ProductImage)">
-        </div>
-        <div class="sm:col-span-2 p-4">
-            <div class="space-y-4">
-                <div class="leading-6 space-y-1">
-                    <p class="text-indigo-600 text-2xl">@Html.PropertyFor(m => Model.CurrentPage.Heading)</p>
-                    <h3>Price:  @Model.ConvertedPrice BTC</h3>
+    <div class="pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
+        <div class="max-w-7xl mx-auto flex rounded-lg shadow-lg overflow-hidden">
+            <div class="aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-4" @Html.EditAttributes(x => Model.CurrentPage.ProductImage)>
+                <img class="object-cover shadow-lg rounded-lg" src="@Url.ContentUrl(Model.CurrentPage.ProductImage)">
+            </div>
+            <div class="sm:col-span-2 p-4">
+                <div class="space-y-4">
+                    <div class="leading-6 space-y-1">
+                        <p class="text-indigo-600 text-2xl">@Html.PropertyFor(m => Model.CurrentPage.Heading)</p>
+                        <h3>Price:  @Model.ConvertedPrice BTC</h3>
+                    </div>
+                    <div class="text-lg">
+                        <p class="text-gray-500">@Html.PropertyFor(m => Model.CurrentPage.MainBody)</p>
+                    </div>
+                    <form method="post" action="@Url.ContentUrl(Model.CurrentPage.ContentLink)">
+                        <input type="hidden" value="@Model.CurrentPage.ContentLink.ID" name="productId" />
+                        <button type="submit" Class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">Buy</button>
+                    </form>
                 </div>
-                <div class="text-lg">
-                    <p class="text-gray-500">@Html.PropertyFor(m => Model.CurrentPage.MainBody)</p>
-                </div>
-                <form method="post" action="@Url.ContentUrl(Model.CurrentPage.ContentLink)">
-                    <input type="hidden" value="@Model.CurrentPage.ContentLink.ID" name="productId" />
-                    <button type="submit" Class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">Buy</button>
-                </form>
             </div>
         </div>
     </div>
-</div>
