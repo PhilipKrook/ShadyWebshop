@@ -8,14 +8,44 @@
     // A repository "talks to the db" CRUD
     public class CartRepository
     {
-        /// Adds an entity
-        public void Add(CartItemEntity item)
+        // Adds an entity
+        public void Save(CartItemEntity itemValidate, bool addOne)
         {
             using (CartContext ctx = new CartContext())
             {
-                ctx.CartItems.Add(item);
+                var cartItem = ctx.CartItems.SingleOrDefault(x => x.ProductId == itemValidate.ProductId && x.UserId == itemValidate.UserId);
+                if (cartItem == null)
+                {
+                    ctx.CartItems.Add(itemValidate);
+                }
+                else
+                {
+                    cartItem.Quantity = addOne ? cartItem.Quantity+1: itemValidate.Quantity;
+                }
                 ctx.SaveChanges();
             }
+        }
+
+        // Removes one product type from the cart
+        public void Remove(int productId, string userId)
+        {
+            using (CartContext ctx = new CartContext())
+            {
+                var cartItems = ctx.CartItems.Where(x => x.ProductId == productId && x.UserId == userId);
+                ctx.CartItems.RemoveRange(cartItems);
+                ctx.SaveChanges();
+            }
+        }
+
+        // Changes the quantity of a product in the cart
+        public void Update(int productId, int quantity, string userId)
+        {
+            using (var ctx = new CartContext())
+            {
+                var item = ctx.CartItems.SingleOrDefault(i => i.ProductId == productId && i.UserId == userId);
+                item.Quantity = quantity;
+                ctx.SaveChanges();
+            } 
         }
 
         // Gets a single identity
@@ -34,16 +64,7 @@
             using (CartContext ctx = new CartContext())
             {
                 var cartItems = ctx.CartItems
-                    .Where(x => x.UserId == userId).ToList()
-                    .GroupBy(item => item.ProductId)
-                    .Select(group => new CartItemEntity
-                    {
-                        ProductId = group.Key,
-                        ProductName = group.First().ProductName,
-                        Quantity = group.Count(),
-                        ConvertedPrice = group.First().ConvertedPrice,
-                        SumPrice = group.First().ConvertedPrice * group.Count()
-                    }).ToList();
+                    .Where(x => x.UserId == userId).ToList();                
 
                 return cartItems;
             }

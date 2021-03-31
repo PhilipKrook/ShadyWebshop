@@ -23,15 +23,7 @@
             Description = "Add the products description",
             GroupName = SystemTabNames.Content,
             Order = 200)]
-        public virtual XhtmlString MainBody { get; set; }
-
-        [CultureSpecific]
-        [Display(
-            Name = "Article number",
-            Description = "The products unique ID",
-            GroupName = SystemTabNames.Content,
-            Order = 300)]
-        public virtual string ArticleNumber { get; set; }
+        public virtual XhtmlString MainBody { get; set; }        
 
         [CultureSpecific]
         [Display(

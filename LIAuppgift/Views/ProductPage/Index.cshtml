@@ -5,7 +5,6 @@
 <div class="">
     <div class="">
         <h1>@Html.PropertyFor(m => Model.CurrentPage.Heading)</h1>
-        <p>Article number: @Html.PropertyFor(m => Model.CurrentPage.ArticleNumber)</p>
     </div>
     <div class="">
         <div @Html.EditAttributes(x => Model.CurrentPage.ProductImage)>
@@ -24,3 +23,5 @@
     <strong>Product description</strong>
     <p>@Html.PropertyFor(m => Model.CurrentPage.MainBody)</p>
 </div>
+
+

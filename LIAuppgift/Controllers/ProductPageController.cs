@@ -29,7 +29,6 @@
             return View("~/Views/ProductPage/Index.cshtml", viewModel);
         }
 
-
         // Post method to add the cart to a cookie based on a guid
         [HttpPost]
         public ActionResult Index(string productId)
@@ -51,6 +50,7 @@
             cartItem.ProductName = productPage.Name;
             cartItem.ProductPrice = int.Parse(productPage.ProductPrice);
             cartItem.UserId = cartCookie.Value;
+            cartItem.Quantity = 1;
 
             // Gets the converted price and adds it to the cart Entity
             var currencyClient = new CurrencyClient();
@@ -58,7 +58,7 @@
             cartItem.ConvertedPrice = convertedPrice;            
 
             var cartRepository = new CartRepository();
-            cartRepository.Add(cartItem);
+            cartRepository.Save(cartItem, true);
 
             // Adds the converted price to the viewmodel
             var viewModel = new ProductPageViewModel();
