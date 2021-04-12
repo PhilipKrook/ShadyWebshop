@@ -13,6 +13,8 @@
 
         public CartPage CurrentPage { get; set; }
 
+        public decimal CartTotal { get; set; }
+
         public IEnumerable<ProductPage> Products { get; set; }
 
         public IEnumerable<CartPage> CartProducts { get; set; }

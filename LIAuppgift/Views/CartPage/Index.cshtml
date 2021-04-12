@@ -14,10 +14,10 @@
                                 Quantity
                             </th>
                             <th scope="col" class="px-8 py-3 text-left text-s font-medium text-gray-800 uppercase tracking-wider">
-                                Price (single)
+                                Price (BTC)
                             </th>
                             <th scope="col" class="px-8 py-3 text-left text-s font-medium text-gray-800 uppercase tracking-wider">
-                                Price (sum)
+                                Subtotal (BTC)
                             </th>
                             <th scope="col" class="px-8 py-3 text-left text-s font-medium text-gray-800 uppercase tracking-wider">
                                 <div>Remove item</div>                                
@@ -40,10 +40,10 @@
                                     </form>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    @cartItem.ConvertedPrice
+                                    @cartItem.ConvertedPrice.ToString()
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                    @cartItem.SumPrice
+                                    @((cartItem.Quantity * cartItem.ConvertedPrice).ToString())
                                 </td>
                                 <td  class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                     <form method="post" action="@Url.ContentUrl(Model.CurrentPage.ContentLink)Remove">
@@ -54,7 +54,15 @@
                             </tr>
                         }
 
-                    </tbody>                    
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3" class="text-right">Total:</td>
+                            <td class="text-right">
+                                 @Model.CartTotal.ToString() BTC
+                            </td>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         </div>
