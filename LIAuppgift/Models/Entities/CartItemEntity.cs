@@ -1,25 +1,9 @@
 ﻿namespace LIAuppgift.Models.Entites
 {
-    using LIAuppgift.Business.EntityFramework;
     using System.ComponentModel.DataAnnotations;
-    using System.Linq;
 
     public class CartItemEntity
     {
-        private readonly CartContext _cartContext;
-        
-        private CartItemEntity(CartContext cartContext)
-        {
-            _cartContext = cartContext;
-        }
-
-        // Sum the total cart value
-        public double GetCartTotal()
-        {
-            var total = _cartContext.CartItems.Where(c => c.UserId == UserId)
-                .Select(c => c.ConvertedPrice * c.Quantity).Sum();
-            return total;
-        }
 
         [Key]
         public int Id { get; set; }
