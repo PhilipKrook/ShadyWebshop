@@ -298,7 +298,6 @@
     <Compile Include="Business\EntityFramework\CartContext.cs" />
     <Compile Include="Business\References\StartPageReferences.cs" />
     <Compile Include="Business\Repositories\CartRepository.cs" />
-    <Compile Include="CMSAdmin.cs" />
     <Compile Include="Controllers\CartPageController.cs" />
     <Compile Include="Controllers\ContactPageController.cs" />
     <Compile Include="Controllers\ProductListingPageController.cs" />

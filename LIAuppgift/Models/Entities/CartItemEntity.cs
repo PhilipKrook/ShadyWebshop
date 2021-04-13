@@ -7,12 +7,13 @@
     public class CartItemEntity
     {
         private readonly CartContext _cartContext;
-
+        
         private CartItemEntity(CartContext cartContext)
         {
             _cartContext = cartContext;
         }
 
+        // Sum the total cart value
         public double GetCartTotal()
         {
             var total = _cartContext.CartItems.Where(c => c.UserId == UserId)
@@ -29,8 +30,6 @@
 
         public int Quantity { get; set; }
 
-/*        public double SumPrice { get; set; }
-*/
         public double ConvertedPrice { get; set; }
 
         public string ProductName { get; set; }
