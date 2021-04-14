@@ -63,7 +63,8 @@
                             <td colspan="3" class="text-s font-medium bg-gray-100 text-gray-800 uppercase text-center">
 
                                 @* Sums the total amount in the cart *@
-                                @Model.CartItems.Sum(x => x.Quantity * x.ConvertedPrice).ToString() BTC
+
+                                @Model.CartItems.Sum(x => x.Quantity * x.ConvertedPrice).ToString() BTC 
 
                             </td>
                         </tr>

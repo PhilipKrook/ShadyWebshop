@@ -1,5 +1,6 @@
 ﻿namespace LIAuppgift.Controllers
-{    
+{
+    using System.Linq;
     using System.Web.Mvc;
     using EPiServer.ServiceLocation;
     using EPiServer.Web.Mvc;
@@ -33,7 +34,7 @@
             cartViewModel.CartItems = cartItems;
 
             return View("~/Views/CartPage/Index.cshtml", cartViewModel);
-        }        
+        }
 
         // Remove product from cart
         [HttpPost]
@@ -53,7 +54,7 @@
             var cartRepository = new CartRepository();
             var cartCookie = this.Request.Cookies.Get("cart");
             cartRepository.Update(productId, quantity, cartCookie.Value);
-            
+
             var cartItems = cartRepository.Get(cartCookie.Value);
             var cartViewModel = new CartPageViewModel();
             cartViewModel.CurrentPage = currentPage;
@@ -61,5 +62,44 @@
 
             return View("~/Views/CartPage/Index.cshtml", cartViewModel);
         }
-    }   
+
+
+
+
+
+        /*public double CartSum()
+        {
+            var cartRepository = new CartRepository();
+            var cartCookie = this.Request.Cookies.Get("cart");
+            var cartItems = cartRepository.Get(cartCookie.Value);
+           
+            double total = 0;
+            foreach (var cartItem in cartItems)
+            {
+                total += cartItem.Quantity * cartItem.ConvertedPrice;
+            }
+
+            var Total = total;
+
+
+
+            var cartRepository = new CartRepository();
+            var cartCookie = this.Request.Cookies.Get("cart");
+            var cartItems = cartRepository.Get(cartCookie.Value);
+
+
+            double total = cartItems.Sum(x => x.Quantity * x.ConvertedPrice);
+            var Total = total;
+
+
+            var total = Model.CartItems.Where(x => x.UserId == UserId)
+                .Select(x => x.Quantity * x.ConvertedPrice).Sum();
+
+            return Total;
+        }*/
+
+
+
+
+    }
 }

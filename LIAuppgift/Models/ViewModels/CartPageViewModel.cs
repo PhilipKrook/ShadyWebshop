@@ -13,7 +13,7 @@
 
         public CartPage CurrentPage { get; set; }
 
-        public double Subtotal { get; set; }
+        public double Total { get; set; }
 
         public IEnumerable<ProductPage> Products { get; set; }
 
