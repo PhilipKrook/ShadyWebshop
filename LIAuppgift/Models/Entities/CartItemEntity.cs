@@ -4,6 +4,7 @@
 
     public class CartItemEntity
     {
+
         [Key]
         public int Id { get; set; }
 
@@ -12,8 +13,6 @@
         public int ProductId { get; set; }
 
         public int Quantity { get; set; }
-
-        public double SumPrice { get; set; }
 
         public double ConvertedPrice { get; set; }
 

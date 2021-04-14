@@ -46,7 +46,7 @@
                 item.Quantity = quantity;
                 ctx.SaveChanges();
             } 
-        }
+        }        
 
         // Gets a single identity
         public CartItemEntity Get(int id)
