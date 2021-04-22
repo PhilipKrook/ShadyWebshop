@@ -256,60 +256,6 @@ namespace LIAuppgift
 
                         bool addPublisherClaim = false;
 
-                        // is the user admin
-                        // var adminUserClaim = roleClaims.Find(c => string.Compare(c.Value, PermissionGroupNames.WebSiteSuperUser, StringComparison.OrdinalIgnoreCase) == 0);
-
-                        /*if (adminUserClaim != null)
-                        {
-                            authClaimsIdentity.AddClaim(new Claim(JwtClaimTypes.Role, EpiRoles.Admin));
-                            addPublisherClaim = true;
-                        }*/
-
-                        // you could have a claim for users from previous CMS and then you could have a custom mapping from that claim to new claim(s) used by Episerver
-                        //var oldEditorClaim = roleClaims.Find(c => string.Compare(c.Value, "BOGUS_OLD_CMS_USER", StringComparison.OrdinalIgnoreCase) == 0);
-                        //if (oldEditorClaim != null)
-                        //{
-                        //    authClaimsIdentity.AddClaim(new Claim(JwtClaimTypes.Role, "WebEditors"));
-                        //    addPublisherClaim = true;
-                        //}
-
-                        // is the user editor
-                        /*var editUserClaim = roleClaims.Find(c => string.Compare(c.Value, PermissionGroupNames.WebSiteEditor, StringComparison.OrdinalIgnoreCase) == 0);
-
-                        if (editUserClaim != null)
-                        {
-                            authClaimsIdentity.AddClaim(new Claim(JwtClaimTypes.Role, EpiRoles.Editor));
-                            addPublisherClaim = true;
-                        }
-
-                        // is the user a reader without edit/publishing rights
-                        var readerUserClaim = roleClaims.Find(c => string.Compare(c.Value, PermissionGroupNames.WebSiteReader, StringComparison.OrdinalIgnoreCase) == 0);
-
-                        if (readerUserClaim != null)
-                        {
-                            authClaimsIdentity.AddClaim(new Claim(JwtClaimTypes.Role, EpiRoles.Editor));
-                            // user will get the WebEditors role but not the role to publish/edit
-                            // WebEditors role should only be used to grant access to the edit mode BUT not give any rights for content
-                            // that is why we have the "SitePublishers" in this demo, we'll grant full permissions for content for this group
-                            // but in real life scenario, you would have different and maybe more granular roles for different actions
-                        }
-
-                        // should we grant the publishing rights to the user
-                        if (addPublisherClaim)
-                        {
-                            authClaimsIdentity.AddClaim(new Claim(JwtClaimTypes.Role, EpiRoles.Publisher));
-                        }
-*/
-                        // next get the email, givenname and surname claim values, our IdP uses JwtClaimTypes
-                        // so this is not something that you can copy to your solution, but you need to check what claims your IdP returns
-                       // authClaimsIdentity.AddClaimFromSource(ClaimTypes.Email, otherClaims, JwtClaimTypes.Email);
-                       // authClaimsIdentity.AddClaimFromSource(ClaimTypes.GivenName, otherClaims, JwtClaimTypes.GivenName);
-                       // authClaimsIdentity.AddClaimFromSource(ClaimTypes.Surname, otherClaims, JwtClaimTypes.FamilyName);
-
-                        // For now we don't need the access token, besides it expires in 60 minutes and we can't refresh it as we don't request for a refreshtoken
-                        //authClaimsIdentity.AddClaim(new Claim(OpenIdConnectParameterNames.AccessToken, tokenResponse.AccessToken));
-                        //authClaimsIdentity.AddClaim(new Claim("expires_at", DateTime.UtcNow.AddSeconds(tokenResponse.ExpiresIn).ToString()));
-
                         authClaimsIdentity.AddClaim(new Claim(OpenIdConnectParameterNames.IdToken, notification.ProtocolMessage.IdToken));
 
                         notification.AuthenticationTicket = new AuthenticationTicket(authClaimsIdentity, notification.AuthenticationTicket.Properties);
