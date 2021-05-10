@@ -25,7 +25,7 @@ Install and run:
 Check:
 
 ```
-- Startup.cs and Web.config for personal settings
+Startup.cs and Web.config for personal settings
 ```
 
 ## Run
