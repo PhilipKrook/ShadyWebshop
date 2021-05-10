@@ -1,6 +1,6 @@
 # Shady Webshop
 
-School exam project, to build the core for a working webshop with .Net and EPIServer.
+School exam project. Built the core for a working webshop with .Net and EPIServer.
 
 ## Installation
 
