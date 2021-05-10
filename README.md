@@ -4,10 +4,14 @@ School exam project, to build the core for a working webshop with .Net and EPISe
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Download the following:
 
 ```bash
-pip install foobar
+- Clone the project
+- SQL Studio Manager
+- Visual Studio
+- SQL Server
+- IIS
 ```
 
 ## Usage
