@@ -24,7 +24,7 @@ Install and run:
 
 Check:
 
-```bash
+```
 - Startup.cs and Web.config for personal settings
 ```
 
