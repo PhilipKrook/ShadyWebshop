@@ -6,7 +6,7 @@ School exam project. Built the core for a working webshop with .Net and EPIServe
 
 Download and install the following:
 
-```bash
+```
 - Clone the project
 - SQL Studio Manager
 - Visual Studio
@@ -16,7 +16,7 @@ Download and install the following:
 
 Install and run:
 
-```bash
+```
 - npm install
 - nuget packages
 - A database
@@ -30,6 +30,6 @@ Startup.cs and Web.config for personal settings
 
 ## Run
 
-```bash
+```
 Ctrl + F5
 ```
