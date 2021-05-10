@@ -16,7 +16,7 @@ Download and install the following:
 
 Install and run:
 
-```python
+```bash
 - npm install
 - nuget packages
 - A database
@@ -24,12 +24,12 @@ Install and run:
 
 Check:
 
-```python
+```bash
 - Startup.cs and Web.config for personal settings
 ```
 
 ## Run
 
-```python
+```bash
 Ctrl + F5
 ```
